@@ -12,10 +12,10 @@ export default function YourForm() {
       >
         <h5>Name and login</h5>
         <label htmlFor="wd-your-first-name">First name: </label>
-        <input type="text" id="wd-your-first-name" defaultValue="Lei" />
+        <input type="text" id="wd-your-first-name" defaultValue="Minghua" />
         <br />
         <label htmlFor="wd-your-last-name">Last name: </label>
-        <input type="text" id="wd-your-last-name" defaultValue="Ming" />
+        <input type="text" id="wd-your-last-name" defaultValue="Lei" />
         <br />
         <label htmlFor="wd-your-student-id">Student ID: </label>
         <input

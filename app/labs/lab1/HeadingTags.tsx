@@ -31,7 +31,7 @@ export default function HeadingTags() {
       </div>
       <div id="wd-your-heading"></div>
       <h4>Minghua Lei</h4>
-      Hi, I&apos;m Lei Ming, and I&apos;m currently learning{" "}
+      Hi, I&apos;m Minghua Lei, and I&apos;m currently learning{" "}
       <span id="wd-your-span">full-stack</span> web development in this course.
     </div>
   );
