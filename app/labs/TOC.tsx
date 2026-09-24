@@ -31,7 +31,7 @@ export default function TOC() {
         </Link>
       </li>
       <li>
-        <Link id="wd-toc-book-link" href="/labs/ch1">
+        <Link id="wd-toc-book-link" href="/book/ch1">
           Chapter 1 HTML
         </Link>
       </li>

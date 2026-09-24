@@ -4,11 +4,9 @@ import Link from "next/link";
 export default function Labs() {
   return (
     <div id="wd-labs">
-      <h1>Labs</h1>
-
       <h2>Minghua Lei</h2>
       <p>CS 5610 Web Dev</p>
-  
+
       <ul>
         <li>
           <Link href="/labs/lab1" id="wd-lab1-link">
