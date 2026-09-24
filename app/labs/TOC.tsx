@@ -30,6 +30,11 @@ export default function TOC() {
           Kambaz
         </Link>
       </li>
+      <li>
+        <Link id="wd-toc-book-link" href="/labs/ch1">
+          Chapter 1 HTML
+        </Link>
+      </li>
     </ul>
   );
 }

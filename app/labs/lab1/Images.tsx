@@ -33,7 +33,7 @@ export default function Images() {
       Loading a local image:
       <br />
       <img
-        id="wd-boston"
+        id="wd-your-image"
         src="/images/boston.jpg"
         height="280px"
         width="200px"
