@@ -1,0 +1,33 @@
+/* p {
+  background-color: green;
+  color: white;
+} */
+
+
+p#wd-id-selector-1 {
+  background-color: red;
+  color: white;
+}
+p#wd-id-selector-2 {
+  background-color: yellow;
+  color: black;
+}
+p#wd-ai-id-selector {
+  background-color: teal;
+  color: white;
+}
+
+p#wd-id-selector-3 {
+  background-color: rgb(216, 182, 131);
+  color: rgb(8, 148, 130);
+}
+
+h2 {
+  background-color: navy;
+  color: white;
+}
+
+h3{
+    background-color: rgb(234, 234, 202);
+    color: rgb(59, 8, 139);
+}
