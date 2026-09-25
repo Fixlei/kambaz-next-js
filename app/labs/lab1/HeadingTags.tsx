@@ -29,10 +29,12 @@ export default function HeadingTags() {
         <h6>Next step</h6>
         Continue the lab by exploring the remaining HTML tags.
       </div>
-      <div id="wd-your-heading"></div>
-      <h4>Minghua Lei</h4>
-      Hi, I&apos;m Minghua Lei, and I&apos;m currently learning{" "}
-      <span id="wd-your-span">full-stack</span> web development in this course.
+      <div id="wd-your-heading">
+        <h4>Minghua Lei</h4>
+        Hi, I&apos;m Minghua Lei, and I&apos;m currently learning{" "}
+        <span id="wd-your-span">full-stack</span> web development in this
+        course.
+      </div>
     </div>
   );
 }
