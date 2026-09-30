@@ -1,33 +1,234 @@
-/* p {
+/*p {
   background-color: green;
   color: white;
-} */
+}*/
 
-
+/* CSS selectors: ID selectors(#) > class selectors(.) > tag selectors(element) */
 p#wd-id-selector-1 {
   background-color: red;
   color: white;
 }
+
 p#wd-id-selector-2 {
-  background-color: yellow;
+  background-color: rgb(244, 244, 203);
   color: black;
 }
+
 p#wd-ai-id-selector {
   background-color: teal;
   color: white;
 }
 
-p#wd-id-selector-3 {
-  background-color: rgb(216, 182, 131);
-  color: rgb(8, 148, 130);
-}
-
-h2 {
-  background-color: navy;
+p#wd-id-selestor-3 {
+  background-color: blue;
   color: white;
 }
 
-h3{
-    background-color: rgb(234, 234, 202);
-    color: rgb(59, 8, 139);
+h2 {
+  background-color: rgb(226, 226, 244);
+  color: rgb(7, 23, 197);
+}
+
+h3 {
+  background-color: rgb(173, 236, 221);
+  color: rgb(9, 179, 74);
+}
+
+.wd-selector-1 .wd-selector-3 {
+  background-color: red;
+  color: white;
+}
+
+.wd-selector-1 > .wd-selector-3 {
+  background-color: green;
+  color: white;
+}
+
+.wd-selector-1 .wd-ai-selector-5 {
+  background-color: orange;
+  color: black;
+}
+
+p {
+  color: rgb(101, 10, 129);
+}
+
+/* Document structure and descendant relationships */
+.wd-specificity-cls {
+  color: green;
+}
+
+#wd-specificity {
+  color: red;
+}
+/*wd-css-specificity*/
+#wd-css-specificity {
+  color: rgb(219, 219, 223);
+}
+
+/* Sample cascade conflict: id (#wd-ai-cascade) should win over class over tag */
+p {
+  background-color: green;
+}
+
+.wd-ai-cascade {
+  background-color: yellow;
+}
+
+#wd-ai-cascade {
+  background-color: rgb(137, 244, 137);
+}
+
+/*foreground color for cascade conflict*/
+.wd-fg-color-black {
+  color: black;
+}
+.wd-fg-color-white {
+  color: white;
+}
+.wd-fg-color-blue {
+  color: #7070ff;
+}
+.wd-fg-color-red {
+  color: #ff7070;
+}
+.wd-fg-color-green {
+  color: green;
+}
+.wd-fg-color-lightgray {
+  color: lightgray;
+}
+.wd-bg-color-pink {
+  background-color: pink;
+}
+
+/*Styling an HTML Tag's Background Color with CSS */
+
+.wd-bg-color-yellow {
+  background-color: #ffff07;
+}
+.wd-bg-color-blue {
+  background-color: #7070ff;
+}
+.wd-bg-color-red {
+  background-color: #ff7070;
+}
+.wd-bg-color-green {
+  background-color: green;
+}
+.wd-bg-color-gray {
+  background-color: lightgray;
+}
+
+/* Styling an HTML Tag's Borders with CSS */
+.wd-border-fat {
+  border-width: 20px 30px 20px 30px;
+}
+.wd-border-thin {
+  border-width: 4px;
+}
+.wd-border-solid {
+  border-style: solid;
+}
+.wd-border-dashed {
+  border-style: dashed;
+}
+.wd-border-yellow {
+  border-color: #ffff07;
+}
+.wd-border-red {
+  border-color: #ff7070;
+}
+.wd-border-blue {
+  border-color: #7070ff;
+}
+.wd-border-gray {
+  border-color: gray;
+}
+.wd-border-double {
+  border-style: double;
+}
+
+/*  Styling an HTML Tag's Padding, Margins, and Box Model with CSS */
+.wd-padded-top-left {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+.wd-padded-bottom-right {
+  padding-bottom: 50px;
+  padding-right: 50px;
+}
+.wd-padded-fat {
+  padding: 50px;
+}
+
+/* Margins, pushing neighboring content away from the outside of the border */
+.wd-margin-bottom {
+  margin-bottom: 50px;
+}
+.wd-margin-right-left {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.wd-margin-all-around {
+  margin: 30px;
+}
+
+.wd-box-model-parent {
+  display: flow-root;
+  background-color: lightgray;
+  padding-top: 8px;
+}
+.wd-box-model-margin-label,
+.wd-box-model-border-label,
+.wd-box-model-padding-label {
+  font-size: 12px;
+  line-height: 12px;
+}
+.wd-box-model-box {
+  position: relative;
+  margin: 20px;
+  padding: 20px;
+  border: 10px solid #c41e3a;
+  background-color: #cfe2ff;
+}
+.wd-box-model-border-label {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  color: #c41e3a;
+}
+.wd-box-model-margin-label {
+  position: absolute;
+  bottom: -26px;
+  left: -20px;
+}
+.wd-box-model-padding-label {
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
+.wd-box-model-content {
+  background-color: #d1e7dd;
+  padding: 8px;
+}
+.wd-box-sizing-demo {
+  background-color: lightgray;
+  padding: 10px;
+}
+.wd-box-sizing-content,
+.wd-box-sizing-border {
+  width: 200px;
+  height: 180px;
+  padding: 20px;
+  border: 10px solid #c41e3a;
+  background-color: #ffff07;
+  margin-bottom: 10px;
+}
+.wd-box-sizing-content {
+  box-sizing: content-box;
+}
+.wd-box-sizing-border {
+  box-sizing: border-box;
 }

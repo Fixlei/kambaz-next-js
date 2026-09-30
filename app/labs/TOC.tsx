@@ -23,7 +23,7 @@ export default function TOC() {
         <Link href="/labs/lab4">Lab 4: More JavaScript</Link>
       </li>
       <li>
-        <Link href="/labs/lab5">Lab 5： Express REST APIs</Link>
+        <Link href="/labs/lab5">Lab 5: Express REST APIs</Link>
       </li>
       <li>
         <Link href="/" id="wd-kambaz-link">

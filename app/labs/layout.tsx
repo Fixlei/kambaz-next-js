@@ -10,9 +10,9 @@ export default function LabsLayout({
       <tbody>
         <tr>
           <td valign="top" width="100px">
-            <TOC />
+            <TOC /> {/* left sidebar: render the table of contents for the labs */}
           </td>
-          <td valign="top">{children}</td>
+          <td valign="top">{children}</td> {/* render the current lab(1,2,3,4,5) page */}
         </tr>
       </tbody>
     </table>
