@@ -12,7 +12,7 @@ export default function Positions() {
             Landscape
           </div>
           <div className="wd-bg-color-red wd-dimension-square">Square</div>
-          <div className="wd-pos-relative-nudge-top-left wd-bg-color-pink wd-fg-color-black wd-dimension-landscape">
+          <div className="wd-pos-relative-nudge-bottom-right wd-bg-color-pink wd-fg-color-black wd-dimension-landscape">
             Landscape
           </div>
           <div
@@ -35,8 +35,8 @@ export default function Positions() {
           <div className="wd-pos-absolute-120-20 wd-bg-color-red wd-dimension-square">
             Square
           </div>
-          <div className="wd-pos-relative-nudge-up-right wd-bg-color-blue wd-fg-color-white wd-dimension-landscape">
-            relat Landscape In ab posit
+          <div className="wd-pos-absolute-bottom-left wd-bg-color-blue wd-fg-color-white wd-dimension-landscape">
+            Bottom left
           </div>
           <div
             id="wd-ai-absolute"
@@ -60,6 +60,9 @@ export default function Positions() {
           className="wd-ai-pos-fixed wd-bg-color-red wd-fg-color-white"
         >
           AI fixed
+        </div>
+        <div className="wd-pos-fixed-top-right wd-bg-color-green wd-fg-color-white">
+          My fixed badge
         </div>
       </div>
     </div>

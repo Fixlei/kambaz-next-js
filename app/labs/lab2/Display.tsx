@@ -30,6 +30,9 @@ export default function Display() {
           Block 3
         </span>
       </div>
+      <div className="wd-display-inline wd-bg-color-blue wd-fg-color-white">
+        My div forced to inline: its width no longer applies
+      </div>
       <div id="wd-ai-display" className="wd-display-inline wd-bg-color-yellow">
         This div is forced to display: inline, so its 150px width and 50px
         height are ignored

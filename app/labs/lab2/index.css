@@ -119,6 +119,9 @@ p {
 .wd-bg-color-gray {
   background-color: lightgray;
 }
+.wd-bg-color-lightblue {
+  background-color: lightblue;
+}
 
 /* Styling an HTML Tag's Borders with CSS */
 .wd-border-fat {
@@ -145,6 +148,9 @@ p {
 .wd-border-gray {
   border-color: gray;
 }
+.wd-border-green {
+  border-color: green;
+}
 .wd-border-double {
   border-style: double;
 }
@@ -158,6 +164,10 @@ p {
 .wd-padded-bottom-right {
   padding-bottom: 50px;
   padding-right: 50px;
+}
+.wd-padded-bottom-left {
+  padding-bottom: 50px;
+  padding-left: 50px;
 }
 .wd-padding-fat {
   padding: 50px;
@@ -354,6 +364,11 @@ p {
   right: 10px;
   bottom: 10px;
 }
+.wd-pos-absolute-bottom-left {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
 
 /* 2.1.15 Styling an HTML Tag's Fixed Position with CSS
  */
@@ -366,6 +381,12 @@ p {
   position: fixed;
   left: 0;
   bottom: 0;
+  padding: 5px;
+}
+.wd-pos-fixed-top-right {
+  position: fixed;
+  top: 0;
+  right: 0;
   padding: 5px;
 }
 
