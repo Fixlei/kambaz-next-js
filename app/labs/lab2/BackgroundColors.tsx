@@ -1,3 +1,5 @@
+// Lab 2 background colors: wd-bg-color-* sets the background, wd-fg-color-* the text.
+// A child (like the span) can override its parent's colors with its own classes.
 export default function BackgroundColors() {
   return (
     <>

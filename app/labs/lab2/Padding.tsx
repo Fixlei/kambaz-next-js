@@ -11,8 +11,11 @@ export default function Padding() {
       <div className="wd-padding-fat wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white">
         Padded all around
       </div>
-<div className="wd-padded-thin wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white">
+      <div className="wd-padded-thin wd-border-fat wd-border-yellow wd-border-solid wd-bg-color-blue wd-fg-color-white">
         Add an one more new Box with thin padding.
+      </div>
+      <div className="wd-padded-bottom-left wd-border-fat wd-border-green wd-border-solid wd-bg-color-lightblue">
+        Add a new Box with padded bottom left
       </div>
       <div
         id="wd-ai-padded"

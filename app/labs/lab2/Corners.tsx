@@ -1,3 +1,5 @@
+// Lab 2 rounded corners: each box uses a border-radius class to round all corners or only some of them.
+// Each box also uses a thin blue solid border and fat padding so the curves are easy to see.
 export default function Corners() {
   return (
     <div id="wd-css-corners">

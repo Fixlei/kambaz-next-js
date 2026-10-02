@@ -261,7 +261,7 @@ p {
   border-radius: 30px 0px 20px 50px;
 }
 .wd-rounded-corners-some {
-  border-top-left-radius: 60px;
+  border-top-left-radius: 180px;
   border-bottom-right-radius: 10px;
 }
 .wd-ai-rounded-left {
@@ -280,6 +280,11 @@ p {
 .wd-dimension-square {
   width: 75px;
   height: 75px;
+}
+.wd-ai-dimension {
+  width: 120px;
+  height: 60px;
+  background-color: #ffff07;
 }
 
 /* Add display classes and a Display.tsx that applies all three to span tags (which default to inline) so the only difference is the display value. */
@@ -301,3 +306,67 @@ p {
   height: 50px;
   padding: 5px;
 }
+
+/* 2.1.13 Styling an HTML Tag's Relative Position with CSS
+ */
+ .wd-pos-relative-nudge-up-right {
+  position: relative;
+  bottom: 30px;
+  left: 30px;
+}
+.wd-pos-relative-nudge-down-right {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+.wd-pos-relative {
+  position: relative;
+}
+
+.wd-pos-relative-nudge-bottom-right {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+.wd-ai-pos-relative-nudge {
+  position: relative;
+  top: 15px;
+  right: 25px;
+}
+/* 2.1.14 Styling a Tag's Absolute Position with CSS */
+.wd-pos-absolute-10-10 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.wd-pos-absolute-50-50 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+.wd-pos-absolute-120-20 {
+  position: absolute;
+  top: 20px;
+  left: 120px;
+}
+.wd-ai-pos-absolute-br {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* 2.1.15 Styling an HTML Tag's Fixed Position with CSS
+ */
+ .wd-pos-fixed {
+  position: fixed;
+  right: 0px;
+  bottom: 50%;
+}
+.wd-ai-pos-fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 5px;
+}
+
+

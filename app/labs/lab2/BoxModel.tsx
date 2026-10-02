@@ -1,3 +1,5 @@
+// Lab 2 box model: every element is content, wrapped by padding, then border, then margin.
+// The box-sizing demo shows that only border-box keeps the declared width on screen.
 export default function BoxModel() {
   return (
     <div id="wd-css-box-model">
