@@ -28,11 +28,12 @@ h2 {
   background-color: rgb(226, 226, 244);
   color: rgb(7, 23, 197);
 }
-
+/*
 h3 {
   background-color: rgb(173, 236, 221);
   color: rgb(9, 179, 74);
 }
+  */
 
 .wd-selector-1 .wd-selector-3 {
   background-color: red;
@@ -278,7 +279,19 @@ p {
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
 }
+/* Shared frame so every lab 2 section reads as its own boxed-off exercise */
+.wd-lab2-section {
+  border: 5px solid #7070ff;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
 /* 2.1.12 Styling an HTML Tag's Dimensions and Display with CSS */
+#wd-css-dimensions {
+  border: 5px solid #ff7070;
+  padding: 14px;
+} 
+
 .wd-dimension-portrait {
   width: 75px;
   height: 100px;
@@ -298,6 +311,11 @@ p {
 }
 
 /* Add display classes and a Display.tsx that applies all three to span tags (which default to inline) so the only difference is the display value. */
+#wd-css-display {
+  background-color:lightgray;
+  padding: 14px;
+  margin:20px;
+}
 .wd-display-inline {
   display: inline;
   width: 150px;
@@ -319,6 +337,11 @@ p {
 
 /* 2.1.13 Styling an HTML Tag's Relative Position with CSS
  */
+#wd-css-positions{
+  border: 5px solid #49ef7b;
+  padding: 14px;
+}
+
  .wd-pos-relative-nudge-up-right {
   position: relative;
   bottom: 30px;
@@ -369,6 +392,14 @@ p {
   bottom: 10px;
   left: 10px;
 }
+.wd-pos-absolute-100-5 {
+  position: absolute;
+  top: 5px;
+  left: 100px;
+}
+.wd-nudge-right-3 {
+  transform: translateX(3px);
+}
 
 /* 2.1.15 Styling an HTML Tag's Fixed Position with CSS
  */
@@ -397,14 +428,68 @@ p {
 .wd-zindex-send-to-back {
   z-index: -1;
 }
-.wd-pos-absolute-160-60 {
-  position: absolute;
-  top: 60px;
-  left: 160px;
-}
 .wd-ai-zindex-top {
   z-index: 20;
   position: absolute;
   top: 80px;
   left: 80px;
+}
+
+/*2.1.17 Floating Images and Content with CSS*/
+#wd-float-divs {
+  border: 5px solid #ff7070;
+  padding: 14px;
+}
+
+.wd-float-left {
+  float: left;
+  height: 100px;
+}
+.wd-float-right {
+  float: right;
+  height: 100px;
+}
+img.wd-float-left,
+img.wd-float-right {
+  width: auto;
+  max-width: 35%;
+}
+img.wd-float-left {
+  margin: 0 1rem 0.5rem 0;
+}
+img.wd-float-right {
+  margin: 0 0 0.5rem 1rem;
+}
+.wd-float-done {
+  clear: both;
+}
+
+/* 2.1.18 Laying Out Content in a Grid Using CSS */
+.wd-grid-row {
+  clear: both;
+}
+.wd-grid-col-half-page { width: 50%; float: left; }
+.wd-grid-col-third-page { width: 33%; float: left; }
+.wd-grid-col-two-thirds-page { width: 67%; float: left; }
+.wd-grid-col-left-sidebar { width: 20%; float: left; }
+.wd-grid-col-main-content { width: 60%; float: left; }
+.wd-grid-col-right-sidebar { width: 20%; float: left; }
+.wd-grid-col-quarter-page { width: 25%; float: left; }
+
+/*2.1.19 Laying Out Content with CSS Flex*/
+.wd-flex-row-container {
+  display: flex;
+  flex-direction: row;
+}
+.wd-flex-grow-1 {
+  flex-grow: 1;
+}
+.wd-flex-row-container > div {
+  height: 100px;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.wd-flex-grow-1 {
+  flex-grow: 1;
 }

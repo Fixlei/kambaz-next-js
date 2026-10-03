@@ -1,3 +1,4 @@
+// 2.1.12 Styling an HTML Tag's Dimensions and Display with CSS.
 export default function Display() {
   return (
     <div id="wd-css-display">

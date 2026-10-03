@@ -8,9 +8,12 @@ import BoxModel from "./BoxModel";
 import Corners from "./Corners";
 import Dimensions from "./Dimensions";
 import Display from "./Display";
-import Positions from "./Position";
+import Positions from "./Positions";
 import Zindex from "./Zindex";
-import Float from "./Float";      
+import Float from "./Float";
+import GridLayout from "./GridLayout";
+import Flex from "./Flex";
+import MediaQueriesDemo from "./MediaQueriesDemo";
 
 export default function Lab2() {
   return (
@@ -81,6 +84,9 @@ export default function Lab2() {
       <Positions />
       <Zindex />
       <Float />
+      <GridLayout />
+      <Flex />
+      <MediaQueriesDemo />
     </div>
   );
 }

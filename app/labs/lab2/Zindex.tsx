@@ -12,7 +12,7 @@ export default function Zindex() {
         <div className="wd-pos-absolute-120-20 wd-bg-color-red wd-dimension-square">
           Square
         </div>
-        <div className="wd-zindex-send-to-back wd-pos-absolute-160-60 wd-bg-color-green wd-fg-color-white wd-rounded-corners-all-around wd-dimension-square">
+        <div className="wd-zindex-send-to-back wd-pos-absolute-100-5 wd-nudge-right-3 wd-bg-color-green wd-fg-color-white wd-rounded-corners-all-around wd-dimension-square">
           Circle
         </div>
         <div
