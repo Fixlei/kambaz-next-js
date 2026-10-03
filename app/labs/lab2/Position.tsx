@@ -25,7 +25,7 @@ export default function Positions() {
       </div>
       <div id="wd-css-position-absolute">
         <h2>Absolute position</h2>
-        <div className="wd-pos-relative" style={{ height: 150 }}>
+        <div className="wd-pos-relative" style={{ height: 220 }}>
           <div className="wd-pos-absolute-10-10 wd-bg-color-yellow wd-dimension-portrait">
             Portrait
           </div>
@@ -53,7 +53,7 @@ export default function Positions() {
         the way on the right and half way down the page. It doesn&apos;t scroll
         with the rest of the page. Its position is &quot;Fixed&quot;.
         <div className="wd-pos-fixed wd-dimension-square wd-bg-color-blue wd-fg-color-white">
-          Fixed position
+          Fixed position on screen
         </div>
         <div
           id="wd-ai-fixed"

@@ -1,14 +1,16 @@
 import "./index.css";
-import ForegroundColors from "./ForegroundColors"
-import BackgroundColors from "./BackgroundColors"
-import Borders from "./Borders"
-import Padding from "./Padding"
-import Margins from "./Margins"
-import BoxModel from "./BoxModel"
-import Corners from "./Corners"
-import Dimensions from "./Dimensions"
-import Display from "./Display"
-import Positions from "./Position" 
+import ForegroundColors from "./ForegroundColors";
+import BackgroundColors from "./BackgroundColors";
+import Borders from "./Borders";
+import Padding from "./Padding";
+import Margins from "./Margins";
+import BoxModel from "./BoxModel";
+import Corners from "./Corners";
+import Dimensions from "./Dimensions";
+import Display from "./Display";
+import Positions from "./Position";
+import Zindex from "./Zindex";
+import Float from "./Float";      
 
 export default function Lab2() {
   return (
@@ -77,6 +79,8 @@ export default function Lab2() {
       <Dimensions />
       <Display />
       <Positions />
+      <Zindex />
+      <Float />
     </div>
   );
 }
