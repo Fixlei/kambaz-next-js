@@ -1,3 +1,6 @@
+//The component below illustrates using margin classes to configure 
+//spacing between content and padding to configure spacing surrounding the content.
+
 export default function TailwindSpacing() {
   return (
     <div>

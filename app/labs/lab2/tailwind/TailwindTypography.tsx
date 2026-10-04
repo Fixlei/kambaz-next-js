@@ -1,3 +1,7 @@
+//typography utility classes that allow developers to quickly control text
+//styling—such as font size, weight, color, alignment, and more—directly
+//in their markup without writing custom CSS
+
 export default function TailwindTypography() {
   return (
     <div>
@@ -23,7 +27,9 @@ export default function TailwindTypography() {
 
       <h2>Minghua Lei Bio</h2>
       <p className="italic text-xl font-bold font-bold">
-        Minghua Lei is a web developer with a passion for creating interactive and user-friendly web applications. He has experience with various web technologies including React, Next.js, and Tailwind CSS.
+        Minghua Lei is a web developer with a passion for creating interactive
+        and user-friendly web applications. He has experience with various web
+        technologies including React, Next.js, and Tailwind CSS.
       </p>
     </div>
   );

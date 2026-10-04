@@ -1,3 +1,7 @@
+// background color utility classes that allow
+//developers to quickly apply solid colors, gradients, 
+//or even arbitrary values to elements directly in their markup.
+
 export default function TailwindBackgroundColors() {
   return (
     <div>

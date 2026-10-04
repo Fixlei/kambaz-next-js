@@ -1,4 +1,5 @@
 import "./index.css";
+import Link from "next/link";
 import ForegroundColors from "./ForegroundColors";
 import BackgroundColors from "./BackgroundColors";
 import Borders from "./Borders";
@@ -19,6 +20,9 @@ export default function Lab2() {
   return (
     <div id="wd-lab2">
       <h2>Lab 2 - Cascading Style Sheets</h2>
+      <Link href="/labs/lab2/tailwind" id="wd-tailwind-link">
+        <span className="wd-bg-color-gray wd-fg-color-blue wd-padding-2 wd-margin-2">Tailwind CSS</span>
+      </Link>
       <h3>Styling with the STYLE attributee</h3>
       <p id="wd-ai-style-attr">
         This paragraph has a purple background and white text.

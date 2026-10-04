@@ -290,7 +290,7 @@ p {
 #wd-css-dimensions {
   border: 5px solid #ff7070;
   padding: 14px;
-} 
+}
 
 .wd-dimension-portrait {
   width: 75px;
@@ -312,9 +312,9 @@ p {
 
 /* Add display classes and a Display.tsx that applies all three to span tags (which default to inline) so the only difference is the display value. */
 #wd-css-display {
-  background-color:lightgray;
+  background-color: lightgray;
   padding: 14px;
-  margin:20px;
+  margin: 20px;
 }
 .wd-display-inline {
   display: inline;
@@ -337,12 +337,12 @@ p {
 
 /* 2.1.13 Styling an HTML Tag's Relative Position with CSS
  */
-#wd-css-positions{
+#wd-css-positions {
   border: 5px solid #49ef7b;
   padding: 14px;
 }
 
- .wd-pos-relative-nudge-up-right {
+.wd-pos-relative-nudge-up-right {
   position: relative;
   bottom: 30px;
   left: 30px;
@@ -403,7 +403,7 @@ p {
 
 /* 2.1.15 Styling an HTML Tag's Fixed Position with CSS
  */
- .wd-pos-fixed {
+.wd-pos-fixed {
   position: fixed;
   right: 0px;
   bottom: 50%;
@@ -468,13 +468,34 @@ img.wd-float-right {
 .wd-grid-row {
   clear: both;
 }
-.wd-grid-col-half-page { width: 50%; float: left; }
-.wd-grid-col-third-page { width: 33%; float: left; }
-.wd-grid-col-two-thirds-page { width: 67%; float: left; }
-.wd-grid-col-left-sidebar { width: 20%; float: left; }
-.wd-grid-col-main-content { width: 60%; float: left; }
-.wd-grid-col-right-sidebar { width: 20%; float: left; }
-.wd-grid-col-quarter-page { width: 25%; float: left; }
+.wd-grid-col-half-page {
+  width: 50%;
+  float: left;
+}
+.wd-grid-col-third-page {
+  width: 33%;
+  float: left;
+}
+.wd-grid-col-two-thirds-page {
+  width: 67%;
+  float: left;
+}
+.wd-grid-col-left-sidebar {
+  width: 20%;
+  float: left;
+}
+.wd-grid-col-main-content {
+  width: 60%;
+  float: left;
+}
+.wd-grid-col-right-sidebar {
+  width: 20%;
+  float: left;
+}
+.wd-grid-col-quarter-page {
+  width: 25%;
+  float: left;
+}
 
 /*2.1.19 Laying Out Content with CSS Flex*/
 .wd-flex-row-container {
@@ -492,4 +513,17 @@ img.wd-float-right {
 
 .wd-flex-grow-1 {
   flex-grow: 1;
+}
+
+.wd-screen-size-label {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: balck;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  z-index: 1000;
+  width: 220px;
+  text-align: center;
 }
