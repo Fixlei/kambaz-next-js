@@ -1,6 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
+/**
+ * One course card on the Dashboard. Clicking anywhere on the card opens the course Home page.
+ * @param id       course id, used in the link /courses/{id}/home
+ * @param title    course name, shown in bold on one line
+ * @param subtitle short description under the title
+ * @param image    path of the cover image, e.g. "/images/reactjs.jpg"
+ */
 export default function CourseCard({
   id,
   title,
@@ -13,13 +20,34 @@ export default function CourseCard({
   image: string;
 }) {
   return (
-    <div className="wd-dashboard-course">
-      <Link href={`/courses/${id}/home`} className="wd-dashboard-course-link">
-        <Image src={image} width={200} height={150} alt={title} />
-        <div>
-          <h5>{title}</h5>
-          <p className="wd-dashboard-course-title">{subtitle}</p>
-          <button type="button">Go</button>
+    <div className="wd-dashboard-course w-[300px] max-w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm">
+      {/* The Link wraps the whole card so the image, text and Go button are all clickable */}
+      <Link
+        href={`/courses/${id}/home`}
+        className="wd-dashboard-course-link block text-neutral-900 no-underline"
+      >
+        {/* next/image needs width and height; object-cover crops the image instead of stretching it */}
+        <Image
+          src={image}
+          width={300}
+          height={160}
+          alt={title}
+          className="h-40 w-full object-cover"
+        />
+        <div className="p-4">
+          <h5 className="m-0 mb-2 truncate text-lg font-semibold whitespace-nowrap">
+            {title}
+          </h5>
+          {/* Fixed 100px height keeps every card the same size, even with longer descriptions */}
+          <p className="wd-dashboard-course-title m-0 mb-3 h-[100px] overflow-hidden text-sm text-neutral-600">
+            {subtitle}
+          </p>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
+          >
+            Go
+          </button>
         </div>
       </Link>
     </div>

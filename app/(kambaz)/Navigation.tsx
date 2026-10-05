@@ -1,4 +1,7 @@
 "use client";
+//Kambaz main sidebar: each link is an icon-and-label tile (React Icons + Tailwind).
+//The <nav> is pinned to the window (fixed top-0 bottom-0), 120px wide, and only shown at md and up.
+//The layout's wd-main-content-offset leaves 120px so page content is not covered.
 
 import { AiOutlineDashboard } from "react-icons/ai";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -11,6 +14,7 @@ export default function KambazNavigation() {
       id="wd-kambaz-navigation"
       className="fixed bottom-0 top-0 z-20 hidden w-[120px] bg-black md:block"
     >
+      {/* Idle tile: black background, white text, red icon */}
       <Link
         href="/account"
         id="wd-account-link"
@@ -20,6 +24,7 @@ export default function KambazNavigation() {
         <br />
         Account
       </Link>
+      {/* Active tile: white background, red text and icon */}
       <Link
         href="/dashboard"
         id="wd-dashboard-link"
@@ -65,7 +70,6 @@ export default function KambazNavigation() {
         <br />
         Labs
       </Link>
-      {/* ...Courses, Calendar, Inbox, Labs... */}
     </nav>
   );
 }

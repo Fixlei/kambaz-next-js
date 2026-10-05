@@ -62,6 +62,12 @@ export default function TailwindGrids() {
             </div>
           </div>
           <div />
+          {/*do your own grid here */}
+          <div className="grid grid-cols-10 gap-3.3 mt-2">
+            <div className="col-span-3 bg-pink-300 p-3">left 30%</div>
+            <div className="col-span-4 bg-light-green-200 p-3">center 40%</div>
+             <div className="col-span-3 bg-blue-300 p-3">right 30%</div>
+          </div>
         </div>
       </div>
     </div>
