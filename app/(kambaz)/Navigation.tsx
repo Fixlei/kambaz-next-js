@@ -36,6 +36,14 @@ export default function KambazNavigation() {
       id="wd-kambaz-navigation"
       className="fixed bottom-0 top-0 z-20 hidden w-[120px] bg-black md:block"
     >
+    <a
+    id="wd-neu-link"
+    href="https://www.northeastern.edu/"
+    target="_blank" rel="noopener noreferrer"
+    className="block py-3 text-center text-sm text-white no-underline"
+    >
+      <img src="/images/neu.png" alt="Northeastern University Logo" className="mx-auto h-8 w-auto" width="75" height="32" />
+    </a>
       {links.map((link) => {
         const active = pathname === link.path || pathname.startsWith(link.path + "/");
         return (
