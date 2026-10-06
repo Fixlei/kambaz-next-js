@@ -1,1 +1,4 @@
+/* Stylesheet for the Tailwind lab pages, imported by page.tsx.
+   It loads Tailwind CSS so the utility classes (e.g. bg-blue-500, p-4, flex)
+   used in the Tailwind* components are available. */
 @import "tailwindcss";

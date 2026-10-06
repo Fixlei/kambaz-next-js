@@ -1,3 +1,6 @@
+//Tailwind Lab page (route /labs/lab2/tailwind)
+//Renders each Tailwind demo component in order: spacing, typography,
+// colors, grids, filters, and responsive layouts
 import "./index.css";
 import TailwindSpacing from "./TailwindSpacing";
 import TailwindTypography from "./TailwindTypography";
@@ -10,7 +13,9 @@ import TailwindResponsiveShowHide from "./TailwindResponsiveShowHide";
 import TailwindResponsiveGrid from "./TailwindResponsiveGrid";
 import TailwindResponsiveSpacingText from "./TailwindResponsiveSpacingText";
 import TailwindResponsiveDesign from "./TailwindResponsiveDesign";
-//low-level atomic utility classes for styling elements directly in HTML
+import TailwindBorders from "./TailwindBorders";
+import TailwindFlexAndWidth from "./TailwindFlexAndWidth";
+//Tailwind = low-level atomic utility classes for styling elements directly in HTML
 
 export default function TailwindLab() {
   return (
@@ -20,7 +25,9 @@ export default function TailwindLab() {
       <TailwindTypography />
       <TailwindBackgroundColors />
       <TailwindResponsiveBreakpoint />
+      <TailwindFlexAndWidth />
       <TailwindGrids />
+      <TailwindBorders />
       <TailwindFilters />
       <TailwindResponsiveFlex />
       <TailwindResponsiveShowHide />
