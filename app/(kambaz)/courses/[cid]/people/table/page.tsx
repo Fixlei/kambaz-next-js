@@ -62,35 +62,68 @@ export default function PeopleTable() {
           <tr className="odd:bg-neutral-50">
             <td className="p-2 text-nowrap">
               <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              Adam Quincy
+              Jane Sample
             </td>
-            <td className="p-2">001234567S</td>
+            <td className="p-2">001234571S</td>
             <td className="p-2">S101</td>
-            <td className="p-2">TA</td>
-            <td className="p-2">1798-11-05</td>
-            <td className="p-2">11:22:33</td>
+            <td className="p-2">STUDENT</td>
+            <td className="p-2">2020-12-01</td>
+            <td className="p-2">08:15:42</td>
           </tr>
           <tr className="odd:bg-neutral-50">
             <td className="p-2 text-nowrap">
               <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
-              John Hancock
+              Alex Sample
             </td>
-            <td className="p-2">001234664S</td>
+            <td className="p-2">001234572S</td>
             <td className="p-2">S101</td>
             <td className="p-2">STUDENT</td>
-            <td className="p-2">1720-11-05</td>
-            <td className="p-2">11:22:33</td>
+            <td className="p-2">2020-12-03</td>
+            <td className="p-2">14:05:18</td>
+          </tr>
+          <tr className="odd:bg-neutral-50">
+            <td className="p-2 text-nowrap">
+              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
+              Sam Sample
+            </td>
+            <td className="p-2">001234573S</td>
+            <td className="p-2">S101</td>
+            <td className="p-2">TA</td>
+            <td className="p-2">2020-12-07</td>
+            <td className="p-2">17:48:09</td>
           </tr>
           <tr className="odd:bg-neutral-50">
             <td className="p-2 text-nowrap">
               <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
               Paul Revere
             </td>
-            <td className="p-2">001234555S</td>
-            <td className="p-2">S101</td>
+            <td className="p-2">0012317753S</td>
+            <td className="p-2">S102</td>
+            <td className="p-2">STUDENT</td>
+            <td className="p-2">2020-12-07</td>
+            <td className="p-2">17:48:09</td>
+          </tr>
+          <tr className="odd:bg-neutral-50">
+            <td className="p-2 text-nowrap">
+              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
+              Adam Quincy
+            </td>
+            <td className="p-2">0012317753S</td>
+            <td className="p-2">S103</td>
             <td className="p-2">TA</td>
-            <td className="p-2">1775-11-05</td>
-            <td className="p-2">11:22:33</td>
+            <td className="p-2">2020-12-07</td>
+            <td className="p-2">17:48:09</td>
+          </tr>
+          <tr className="odd:bg-neutral-50">
+            <td className="p-2 text-nowrap">
+              <FaUserCircle className="me-2 inline text-4xl text-neutral-500" />
+              John Hancock
+            </td>
+            <td className="p-2">0012317754S</td>
+            <td className="p-2">S104</td>
+            <td className="p-2">TA</td>
+            <td className="p-2">2020-12-07</td>
+            <td className="p-2">17:48:09</td>
           </tr>
         </tbody>
       </table>

@@ -15,7 +15,6 @@ import { GoHistory } from "react-icons/go";
 import { FaInbox } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import "@/app/labs/lab2/tailwind/utilities.css";
 
 const links = [
   {
@@ -79,7 +78,8 @@ export default function KambazNavigation() {
         rel="noopener noreferrer"
         className="block py-3 text-center text-sm text-white no-underline"
       >
-        <img className="wd-logo"
+        <img
+          className="wd-logo mx-auto"
           src="/images/neu.png"
           alt="Northeastern University Logo"
         />
