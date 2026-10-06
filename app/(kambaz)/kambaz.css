@@ -32,6 +32,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .list-group.wd > .list-group-item {
   display: block;
@@ -48,4 +51,15 @@
   background-color: white;
   border-left: 3px solid black !important;
   font-weight: 600;
+}
+
+.wd-logo {
+  display: block;
+  overflow: hidden;
+  background-image: var(--ic-brand-header-image);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.3s;
+  height: 75px;
 }
