@@ -33,7 +33,21 @@ export default function Labs() {
             Lab 5: Express REST APIs
           </Link>
         </li>
+        <li>
+          <Link href="/" id="wd-kambaz-link">
+            Kambaz
+          </Link>
+        </li>
       </ul>
+      {/* Public repository with the source for this deployment */}
+      <a
+        href="https://github.com/Fixlei/kambaz-next-js"
+        id="wd-github"
+        target="_blank"
+        rel="noreferrer"
+      >
+        GitHub repository
+      </a>
     </div>
   );
 }

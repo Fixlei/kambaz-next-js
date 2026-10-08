@@ -19,8 +19,24 @@ p#wd-ai-id-selector {
   color: white;
 }
 
-p#wd-id-selestor-3 {
+p#wd-id-selector-3 {
   background-color: blue;
+  color: white;
+}
+
+/* Class selectors: one class can style different tags */
+.wd-class-selector {
+  background-color: yellow;
+  color: blue;
+}
+/* My own class, shared by a p and an h4 */
+.wd-your-class {
+  background-color: rgb(255, 228, 196);
+  color: rgb(139, 69, 19);
+}
+/* With AI: sample class */
+.wd-ai-class-selector {
+  background-color: darkslateblue;
   color: white;
 }
 
@@ -28,21 +44,29 @@ h2 {
   background-color: rgb(226, 226, 244);
   color: rgb(7, 23, 197);
 }
-/*
+
+/* My tag rule: every h3 on the page */
 h3 {
   background-color: rgb(173, 236, 221);
   color: rgb(9, 179, 74);
 }
-  */
 
+/* Descendant: .wd-selector-3 anywhere inside .wd-selector-1 */
 .wd-selector-1 .wd-selector-3 {
   background-color: red;
   color: white;
 }
 
-.wd-selector-1 > .wd-selector-3 {
-  background-color: green;
-  color: white;
+/* Child: .wd-selector-4 directly inside .wd-selector-3, directly inside .wd-selector-2 */
+.wd-selector-2 > .wd-selector-3 > .wd-selector-4 {
+  background-color: yellow;
+  color: blue;
+}
+
+/* My extra node: only a direct child of .wd-selector-2 */
+.wd-selector-2 > .wd-selector-6 {
+  background-color: lightblue;
+  color: darkblue;
 }
 
 .wd-selector-1 .wd-ai-selector-5 {
@@ -77,7 +101,8 @@ p {
 }
 
 #wd-ai-cascade {
-  background-color: rgb(137, 244, 137);
+  background-color: red;
+  color: white;
 }
 
 /*foreground color for cascade conflict*/
@@ -194,6 +219,23 @@ p {
   margin: 30px;
 }
 
+/* Box model: four nested layers, from margin on the outside to content */
+.wd-box-model-margin {
+  background-color: #f8d7da;
+  padding: 20px;
+  margin: 10px 0;
+}
+.wd-box-model-border {
+  background-color: #fff3cd;
+  border: 10px solid #c41e3a;
+  padding: 20px;
+}
+.wd-box-model-padding {
+  background-color: #cfe2ff;
+  padding: 20px;
+}
+
+/* My own box model diagram (labels positioned on each layer) */
 .wd-box-model-parent {
   display: flow-root;
   background-color: lightgray;
@@ -230,7 +272,7 @@ p {
 }
 .wd-box-model-content {
   background-color: #d1e7dd;
-  padding: 8px;
+  padding: 10px;
 }
 .wd-box-sizing-demo {
   background-color: lightgray;
@@ -251,6 +293,10 @@ p {
 }
 .wd-box-sizing-border {
   box-sizing: border-box;
+}
+/* My width change: a wider border-box box still measures exactly 300px */
+.wd-box-sizing-wide {
+  width: 300px;
 }
 /* .wd-box-sizing-default: no box-sizing declared here, so the browser
    default (content-box) applies — same visual result as .wd-box-sizing-content */
@@ -510,20 +556,21 @@ img.wd-float-right {
   padding: 10px;
   white-space: nowrap;
 }
-
-.wd-flex-grow-1 {
-  flex-grow: 1;
+.wd-width-75px {
+  /* Room for "Column 1" + 10px padding under border-box */
+  width: 110px;
+  flex-shrink: 0;
+}
+/* My row: a wider pinned column */
+.wd-width-150px {
+  width: 150px;
+  flex-shrink: 0;
 }
 
-.wd-screen-size-label {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: balck;
-  color: white;
-  padding: 5px;
-  font-size: 12px;
-  z-index: 1000;
-  width: 220px;
-  text-align: center;
+/* Small chip around the Tailwind link at the top of Lab 2 */
+.wd-padding-2 {
+  padding: 2px 8px;
+}
+.wd-margin-2 {
+  margin: 2px;
 }

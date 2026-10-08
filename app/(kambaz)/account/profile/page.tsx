@@ -1,42 +1,60 @@
+//Profile page (/account/profile): full-width fields like Sign in, and a red Sign out button.
 import Link from "next/link";
+
+const inputClass = "mb-2 w-full rounded border border-neutral-300 px-3 py-2";
 
 export default function Profile() {
   return (
-    <div id="wd-profile-screen">
-      <h3>Profile</h3>
+    <div id="wd-profile-screen" className="max-w-sm">
+      <h1 className="mb-3 text-2xl font-semibold">Profile</h1>
       <input
         defaultValue="alice"
         placeholder="username"
-        className="wd-username"
+        className={`wd-username ${inputClass}`}
       />
-      <br />
       <input
         defaultValue="123"
         placeholder="password"
         type="password"
-        className="wd-password"
+        className={`wd-password ${inputClass}`}
       />
-      <br />
-      <input defaultValue="Alice" placeholder="First Name" id="wd-firstname" />
-      <br />
+      <input
+        defaultValue="Alice"
+        placeholder="First Name"
+        id="wd-firstname"
+        className={inputClass}
+      />
       <input
         defaultValue="Wonderland"
         placeholder="Last Name"
         id="wd-lastname"
+        className={inputClass}
       />
-      <br />
-      <input defaultValue="2000-01-01" type="date" id="wd-dob" />
-      <br />
-      <input defaultValue="alice@wonderland" type="email" id="wd-email" />
-      <br />
-      <select defaultValue="FACULTY" id="wd-role">
+      <input
+        defaultValue="2000-01-01"
+        type="date"
+        id="wd-dob"
+        className={inputClass}
+      />
+      <input
+        defaultValue="alice@wonderland"
+        type="email"
+        id="wd-email"
+        className={inputClass}
+      />
+      <select defaultValue="FACULTY" id="wd-role" className={inputClass}>
         <option value="USER">User</option>
         <option value="ADMIN">Admin</option>
         <option value="FACULTY">Faculty</option>
         <option value="STUDENT">Student</option>
       </select>
-      <br />
-      <Link href="/account/signin">Sign out</Link>
+      <Link
+        id="wd-signout-btn"
+        href="/account/signin"
+        className="mb-2 block w-full rounded bg-red-600 px-3 py-2 text-center text-white no-underline"
+      >
+        Sign out
+      </Link>
     </div>
   );
 }

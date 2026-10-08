@@ -3,6 +3,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 //Each label builds its own path (/courses/{cid}/{label}) and id (wd-course-{label}-link).
+/**
+ * Home
+Modules
+Piazza
+Zoom Meetings
+Assignments
+Quizzes
+Grades1
+People
+Panopto Video
+Notebook
+ */
 const links = [
   "Home",
   "Modules",
@@ -42,6 +54,14 @@ export default function CourseNavigation({ cid }: { cid: string }) {
           </Link>
         );
       })}
+      {/* With AI: sample link, always shown with the idle classes */}
+      <Link
+        href={`/courses/${cid}/home`}
+        id="wd-course-ai-link"
+        className="list-group-item border-0 text-red-600"
+      >
+        Sample
+      </Link>
     </div>
   );
 }

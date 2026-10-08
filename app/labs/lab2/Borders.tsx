@@ -24,6 +24,13 @@ export default function Borders() {
       <p className="wd-border-thin wd-border-gray wd-border-double">
         Double thin gray border
       </p>
+      {/* With AI: sample mix of existing width, style, and color classes */}
+      <p
+        id="wd-ai-border"
+        className="wd-border-fat wd-border-dashed wd-border-yellow"
+      >
+        Sample: fat dashed yellow border
+      </p>
     </div>
   );
 }

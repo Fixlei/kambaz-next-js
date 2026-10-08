@@ -32,7 +32,7 @@ export default function TailwindGrids() {
           <div className="text-center bg-blue-300 p-3">06</div>
           <div className="col-span-2 text-center bg-blue-300 p-3">07</div>
         </div>
-        <div>
+        <div id="wd-tailwind-grid-system" className="mt-6">
           <h2>Grid system</h2>
           <div className="grid grid-cols-2 gap-2">
             <div className="bg-red-500 text-white">
@@ -42,7 +42,7 @@ export default function TailwindGrids() {
               <h3>Right half</h3>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-2">
+          <div className="grid grid-cols-12 gap-2 mt-2">
             <div className="col-span-4 bg-yellow-500">
               <h3>One third</h3>
             </div>
@@ -50,7 +50,7 @@ export default function TailwindGrids() {
               <h3>Two thirds</h3>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-2">
+          <div className="grid grid-cols-12 gap-2 mt-2">
             <div className="col-span-2 bg-black text-white">
               <h3>Sidebar</h3>
             </div>
@@ -61,12 +61,18 @@ export default function TailwindGrids() {
               <h3>Sidebar</h3>
             </div>
           </div>
-          <div />
           {/*do your own grid here */}
-          <div className="grid grid-cols-10 gap-3.3 mt-2">
+          <div className="grid grid-cols-10 gap-3 mt-2">
             <div className="col-span-3 bg-pink-300 p-3">left 30%</div>
-            <div className="col-span-4 bg-light-green-200 p-3">center 40%</div>
-             <div className="col-span-3 bg-blue-300 p-3">right 30%</div>
+            <div className="col-span-4 bg-green-200 p-3">center 40%</div>
+            <div className="col-span-3 bg-blue-300 p-3">right 30%</div>
+          </div>
+          {/* With AI: sample 3/9 split on a twelve-column grid */}
+          <div id="wd-ai-grid" className="grid grid-cols-12 gap-2 mt-2">
+            <div className="col-span-3 bg-purple-500 p-3 text-white">
+              col-span-3
+            </div>
+            <div className="col-span-9 bg-orange-300 p-3">col-span-9</div>
           </div>
         </div>
       </div>
