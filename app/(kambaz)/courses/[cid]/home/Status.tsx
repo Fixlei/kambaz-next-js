@@ -1,5 +1,12 @@
-import { FaCheckCircle } from "react-icons/fa";
-import { MdDoNotDisturbAlt } from "react-icons/md";
+import { FaCheckCircle, FaStream } from "react-icons/fa";
+import {
+  MdAnalytics,
+  MdAnnouncement,
+  MdDoNotDisturbAlt,
+  MdNotificationsNone,
+  MdOutlineHome,
+} from "react-icons/md";
+import { LiaFileImportSolid } from "react-icons/lia";
 
 export default function CourseStatus() {
   return (
@@ -25,8 +32,40 @@ export default function CourseStatus() {
       >
         {/* icon */} Import Existing Content
       </button>
-      {/* ...repeat full-width bordered buttons for Import from Commons,
-             Choose Home Page, and the rest... */}
+      <button type="button"
+        className="mb-1 flex w-full items-center rounded border border-neutral-300 bg-white px-3 py-2 text-left text-sm">
+<LiaFileImportSolid className="me-2 fs-5" /> Import from Commons </button>
+      <button
+        type="button"
+        className="mb-1 flex w-full items-center rounded border border-neutral-300 bg-white px-3 py-2 text-left text-sm"
+      >
+        <MdOutlineHome className="me-2 text-lg" /> Choose Home Page
+      </button>
+      <button
+        type="button"
+        className="mb-1 flex w-full items-center rounded border border-neutral-300 bg-white px-3 py-2 text-left text-sm"
+      >
+        <FaStream className="me-2 text-lg" /> View Course Stream
+      </button>
+      <button
+        type="button"
+        className="mb-1 flex w-full items-center rounded border border-neutral-300 bg-white px-3 py-2 text-left text-sm"
+      >
+        <MdAnnouncement className="me-2 text-lg" /> New Announcement
+      </button>
+      <button
+        type="button"
+        className="mb-1 flex w-full items-center rounded border border-neutral-300 bg-white px-3 py-2 text-left text-sm"
+      >
+        <MdAnalytics className="me-2 text-lg" /> New Analytics
+      </button>
+      <button
+        type="button"
+        className="mb-1 flex w-full items-center rounded border border-neutral-300 bg-white px-3 py-2 text-left text-sm"
+      >
+        <MdNotificationsNone className="me-2 text-lg" /> View Course
+        Notifications
+      </button>
     </div>
   );
 }

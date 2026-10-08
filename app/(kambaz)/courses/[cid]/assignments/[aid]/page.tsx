@@ -1,10 +1,12 @@
 import Link from "next/link";
 
-export default function AssignmentEditor({
+export default async function AssignmentEditor({
   params,
 }: {
   params: Promise<{ cid: string; aid: string }>;
 }) {
+  // cid is needed so Cancel and Save can return to this course's assignment list
+  const { cid } = await params;
   return (
     <div id="wd-assignments-editor">
       <label htmlFor="wd-name">Assignment Name</label>
@@ -131,9 +133,13 @@ export default function AssignmentEditor({
           {/** Cancel and Save links back to the assignments list — ids wd-cancel and wd-save */}
           <tr>
             <td colSpan={2} align="right">
-              <a href="#" id="wd-cancel">Cancel</a>
+              <Link href={`/courses/${cid}/assignments`} id="wd-cancel">
+                Cancel
+              </Link>
               &nbsp;|&nbsp;
-              <a href="#" id="wd-save">Save</a>
+              <Link href={`/courses/${cid}/assignments`} id="wd-save">
+                Save
+              </Link>
             </td>
           </tr>
         </tbody>
