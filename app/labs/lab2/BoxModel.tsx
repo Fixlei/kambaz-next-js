@@ -4,6 +4,18 @@ export default function BoxModel() {
   return (
     <div id="wd-css-box-model">
       <h2>Box Model</h2>
+      {/* Book demo: each nested div is one layer, from margin down to content */}
+      <div className="wd-box-model-margin">
+        margin
+        <div className="wd-box-model-border">
+          border
+          <div className="wd-box-model-padding">
+            padding
+            <div className="wd-box-model-content">content</div>
+          </div>
+        </div>
+      </div>
+      <h3>My box model diagram</h3>
       <div className="wd-box-model-parent">
         <div>parent background (shows through the margin)</div>
         <div className="wd-box-model-box">
@@ -31,6 +43,10 @@ export default function BoxModel() {
             and this default box both add the padding and border on top of it. */}
         <div className="wd-box-sizing-default">
           default (no box-sizing): same as content-box, grows past 200px
+        </div>
+        {/* My width change: border-box at 300px stays exactly 300px wide */}
+        <div className="wd-box-sizing-border wd-box-sizing-wide">
+          border-box at width 300px: still 300px on screen
         </div>
       </div>
     </div>

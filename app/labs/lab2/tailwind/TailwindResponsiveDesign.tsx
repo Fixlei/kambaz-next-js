@@ -2,6 +2,7 @@ export default function TailwindResponsiveDesign() {
   return (
     <div className="font-sans">
       <h2 className="text-3xl font-bold mb-4">Responsive Design</h2>
+      {/* My card: personal copy; the title also grows at md (md:text-2xl) */}
       <div className="mx-auto w-full max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl">
         <div className="md:flex">
           <div className="relative md:w-48 md:shrink-0">
@@ -39,6 +40,36 @@ export default function TailwindResponsiveDesign() {
             </div>
           </div>
           <div className="min-w-0 p-8">
+            <div className="text-sm font-semibold tracking-wide text-indigo-500 uppercase">
+              CS5610 Web Development
+            </div>
+            <a
+              href="#"
+              className="mt-1 block text-lg leading-tight font-medium text-black no-underline hover:underline md:text-2xl"
+            >
+              Building Kambaz with Next.js and Tailwind
+            </a>
+            <p className="mt-2 text-gray-500">
+              My Fall 2026 project in Boston: a Canvas-inspired learning
+              management system built with React, Next.js, and Tailwind CSS.
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* With AI: sample card; the card turns indigo at md and the text gets more padding at lg */}
+      <div
+        id="wd-ai-responsive"
+        className="mx-auto mt-6 w-full max-w-md overflow-hidden rounded-xl bg-white shadow-md md:max-w-2xl md:bg-indigo-50"
+      >
+        <div className="md:flex">
+          <div className="md:shrink-0">
+            <img
+              className="h-48 w-full object-cover md:h-full md:w-48"
+              src="/images/reactjs.jpg"
+              alt="ReactJS logo"
+            />
+          </div>
+          <div className="p-8 lg:p-12">
             <div className="text-sm font-semibold tracking-wide text-indigo-500 uppercase">
               Professional Courses
             </div>

@@ -70,3 +70,39 @@
     text-decoration: underline;
   }
 }
+
+/* My extra breakpoint: 1500px and wider turns black (comes after 1250 so it wins) */
+@media (min-width: 1500px) {
+  .wd-media-queries-demo {
+    background-color: black;
+    color: white;
+  }
+  .wd-media-queries-demo li.wd-mq-rule-1250 {
+    opacity: 0.55;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  .wd-media-queries-demo li.wd-mq-rule-1500 {
+    opacity: 1;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+/* With AI: 749px and narrower turns purple */
+@media (max-width: 749px) {
+  .wd-media-queries-demo {
+    background-color: purple;
+    color: white;
+  }
+  .wd-media-queries-demo li.wd-mq-rule-default {
+    opacity: 0.55;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  .wd-media-queries-demo li.wd-mq-rule-ai {
+    opacity: 1;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
