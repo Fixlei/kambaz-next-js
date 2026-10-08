@@ -3,6 +3,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 //Each label builds its own path (/courses/{cid}/{label}) and id (wd-course-{label}-link).
+/**
+ * Home
+Modules
+Piazza
+Zoom Meetings
+Assignments
+Quizzes
+Grades1
+People
+Panopto Video
+Notebook
+ */
 const links = [
   "Home",
   "Modules",
