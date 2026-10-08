@@ -54,6 +54,14 @@ export default function CourseNavigation({ cid }: { cid: string }) {
           </Link>
         );
       })}
+      {/* With AI: sample link, always shown with the idle classes */}
+      <Link
+        href={`/courses/${cid}/home`}
+        id="wd-course-ai-link"
+        className="list-group-item border-0 text-red-600"
+      >
+        Sample
+      </Link>
     </div>
   );
 }

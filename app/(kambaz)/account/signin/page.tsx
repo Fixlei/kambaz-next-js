@@ -19,6 +19,15 @@ export default function Signin() {
         defaultValue="123"
         className="wd-password mb-2 w-full rounded border border-neutral-300 px-3 py-2"
       />
+      {/* With AI: sample labeled field */}
+      <label htmlFor="wd-ai-signin-note" className="mb-1 block text-sm text-neutral-600">
+        Sample note
+      </label>
+      <input
+        id="wd-ai-signin-note"
+        placeholder="sample note"
+        className="mb-2 w-full rounded border border-neutral-300 px-3 py-2"
+      />
       {/* A Link styled as a full-width blue button, so it navigates without a form submit */}
       <Link
         id="wd-signin-btn"

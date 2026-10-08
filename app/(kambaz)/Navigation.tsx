@@ -3,9 +3,10 @@
 //The <nav> is pinned to the window (fixed top-0 bottom-0), 120px wide, and only shown at md and up.
 //The layout's wd-main-content-offset leaves 120px so page content is not covered.
 //Only the tile matching the current URL (usePathname) is white; the rest stay black.
+//Icons are red, except Account, which is white on the black tile.
 
 import { AiOutlineDashboard } from "react-icons/ai";
-import { FaRegCircleUser } from "react-icons/fa6";
+import { FaCircleQuestion, FaRegCircleUser } from "react-icons/fa6";
 import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { BsQuestionCircle } from "react-icons/bs";
 import { PiVideoConference } from "react-icons/pi";
@@ -16,13 +17,13 @@ import { FaInbox } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+// match: the path prefix that highlights the tile, when it differs from where the link goes
 const links = [
   {
     label: "Account",
     path: "/account",
     icon: FaRegCircleUser,
     id: "wd-account-link",
-    avatar: "/images/avatar.jpg", // profile photo; remove this line to fall back to the icon
   },
   {
     label: "Dashboard",
@@ -31,8 +32,10 @@ const links = [
     id: "wd-dashboard-link",
   },
   {
+    // Courses opens the course list on the Dashboard, and lights up inside any course
     label: "Courses",
-    path: "/courses",
+    path: "/dashboard",
+    match: "/courses",
     icon: LiaBookSolid,
     id: "wd-courses-link",
   },
@@ -57,10 +60,11 @@ const links = [
   },
   {
     label: "Studio",
-    path: "/Studio",
+    path: "/studio",
     icon: PiVideoConference,
     id: "wd-studio-link",
   },
+  { label: "Labs", path: "/labs", icon: LiaCogSolid, id: "wd-labs-link" },
   { label: "Help", path: "/help", icon: BsQuestionCircle, id: "wd-help-link" },
 ];
 
@@ -85,11 +89,14 @@ export default function KambazNavigation() {
         />
       </a>
       {links.map((link) => {
-        const active =
-          pathname === link.path || pathname.startsWith(link.path + "/");
+        const match = link.match ?? link.path;
+        const active = pathname === match || pathname.startsWith(match + "/");
+        // Account's icon is white on the black tile; it turns red with the rest when selected
+        const iconColor =
+          link.label === "Account" && !active ? "text-white" : "text-red-600";
         return (
           <Link
-            key={link.path}
+            key={link.id}
             href={link.path}
             id={link.id}
             className={
@@ -98,21 +105,22 @@ export default function KambazNavigation() {
                 : "block bg-black py-3 text-center text-sm text-white no-underline" // idle: black tile, white text
             }
           >
-            {link.avatar ? (
-              // round avatar, like Canvas .ic-avatar: fixed square + rounded-full + object-cover
-              <img
-                src={link.avatar}
-                alt="Account avatar"
-                className="inline-block h-[30px] w-[30px] rounded-full object-cover"
-              />
-            ) : (
-              <link.icon className="inline-block text-3xl text-red-600" />
-            )}
+            <link.icon className={`inline-block text-3xl ${iconColor}`} />
             <br />
             {link.label}
           </Link>
         );
       })}
+      {/* With AI: sample tile, always shown with the idle black/white classes */}
+      <Link
+        href="/labs"
+        id="wd-ai-nav-help"
+        className="block bg-black py-3 text-center text-sm text-white no-underline"
+      >
+        <FaCircleQuestion className="inline-block text-3xl text-red-600" />
+        <br />
+        Lab Help
+      </Link>
     </nav>
   );
 }
