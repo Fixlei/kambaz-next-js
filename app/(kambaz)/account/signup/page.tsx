@@ -1,4 +1,5 @@
 //Sign up page (/account/signup): same form styling as Sign in, plus a password check field.
+//But this sign up page also has no actual authentication logic yet.
 import Link from "next/link";
 
 export default function Signup() {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+//if the page can not found, this component will be rendered
 export default function NotFound() {
   return (
     <div id="wd-not-found">

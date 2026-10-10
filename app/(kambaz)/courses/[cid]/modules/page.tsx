@@ -70,12 +70,12 @@ export default function Modules() {
               Chapter 2 - Styling User Interfaces with CSS and Tailwind
             </li>
           </Lesson>
-          <Lesson title="MY PRACTICE NOTES">
+          <Lesson title="EXERCISES and PRACTICE ">
             <li className="wd-content-item">
               Lab 2 - CSS, React Icons, and Tailwind samples
             </li>
             <li className="wd-content-item">
-              A2 - Restyle Kambaz to look like Canvas
+              A2 - HTML and CSS + Tailwind practice build Canvas-like layout
             </li>
           </Lesson>
         </Module>

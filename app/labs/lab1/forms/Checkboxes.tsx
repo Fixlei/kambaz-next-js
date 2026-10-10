@@ -1,3 +1,4 @@
+// Checkboxes: pick any number of movie genres
 export default function Checkboxes() {
   return (
     <>

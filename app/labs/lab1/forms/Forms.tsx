@@ -1,4 +1,5 @@
 "use client";
+// Lab 1 form section: puts every field-type demo inside one form, then shows YourForm
 
 import TextFields from "./TextFields";
 import Textarea from "./Textarea";
@@ -28,7 +29,7 @@ export default function Forms() {
         <Buttons />
       </form>
       <YourForm />
-      {/* Imported once. Forms.tsx imports it at line 10 and renders it once at line 30 */}
+      {/* Imported once. Forms.tsx imports it at line 11 and renders it once at line 31 */}
     </div>
   );
 }

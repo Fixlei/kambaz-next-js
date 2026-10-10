@@ -1,5 +1,6 @@
 //Sign in page (/account/signin). The home page "/" redirects here.
 //Username and password are not checked yet; Sign in simply goes to the Dashboard.
+//This page is part of the authentication flow. But is has no actual authentication logic yet.
 import Link from "next/link";
 
 export default function Signin() {
