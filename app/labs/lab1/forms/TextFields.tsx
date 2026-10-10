@@ -1,3 +1,4 @@
+// Text fields: username, password, first and last name inputs
 export default function TextFields() {
   return (
     <>

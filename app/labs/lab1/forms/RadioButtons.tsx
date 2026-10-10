@@ -1,3 +1,4 @@
+// Radio buttons: inputs that share a name allow only one choice per group
 export default function RadioButtons() {
   return (
     <>

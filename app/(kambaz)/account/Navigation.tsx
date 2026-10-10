@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 
 const links = ["Signin", "Signup", "Profile"];
 
+// Account sidebar links; the link for the current page is highlighted, the rest are red
 export default function AccountNavigation() {
   const pathname = usePathname() ?? "";
   return (

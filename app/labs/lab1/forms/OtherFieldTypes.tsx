@@ -1,3 +1,4 @@
+// Other input types: email, number, range slider and date
 export default function OtherFieldTypes() {
   return (
     <>

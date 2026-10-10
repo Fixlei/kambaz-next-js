@@ -1,3 +1,4 @@
+// Dropdowns: a single-choice select and a multi-choice select
 export default function Dropdowns() {
   return (
     <>

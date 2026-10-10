@@ -82,6 +82,7 @@ export default function KambazNavigation() {
         rel="noopener noreferrer"
         className="block py-3 text-center text-sm text-white no-underline"
       >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="wd-logo mx-auto"
           src="/images/neu.png"

@@ -55,11 +55,5 @@
 
 .wd-logo {
   display: block;
-  overflow: hidden;
-  background-image: var(--ic-brand-header-image);
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transition: transform 0.3s;
   height: 75px;
 }
