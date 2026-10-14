@@ -2,6 +2,14 @@ import VariablesAndConstants from "./VariablesAndConstants";
 import VariableTypes from "./VariableTypes";
 import BooleanVariables from "./BooleanVariables";
 import IfElse from "./IfElse";
+import TernaryOperator from "./TernaryOperator";
+import ArrowFunctions from "./ArrowFunctions";
+import ConditionalOutputIfElse from "./ConditionalOutputIfElse";
+import ConditionalOutputInline from "./ConditionalOutputInline";
+import ImpliedReturn from "./ImpliedReturn";
+import LegacyFunctions from "./LegacyFunctions";
+import NullUndefined from "./NullUndefined";
+import TemplateLiterals from "./TemplateLiterals";
 
 export default function Lab3() {
   return (
@@ -12,6 +20,14 @@ export default function Lab3() {
       <VariableTypes />
       <BooleanVariables />
       <IfElse />
+      <TernaryOperator />
+      <ArrowFunctions />
+      <ConditionalOutputIfElse />
+      <ConditionalOutputInline />
+      <ImpliedReturn />
+      <LegacyFunctions />
+      <NullUndefined />
+      <TemplateLiterals />
     </div>
   );
 }
