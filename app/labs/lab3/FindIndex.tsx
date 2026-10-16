@@ -8,12 +8,20 @@ export default function FindIndex() {
   let stringArray1 = ["string1", "string3"];
   const fourIndex = numberArray1.findIndex((a) => a === 4);
   const string3Index = stringArray1.findIndex((a) => a === "string3");
+  const threeIndex = numberArray1.findIndex((a) => a === 3);
   return (
     <div id="wd-find-index">
       <h4>Find Index Function</h4>
       fourIndex = {fourIndex}
       <br />
       string3Index = {string3Index}
+      <br />
+      {/* With AI: hit at index 4 */}
+      sixIndex = {numberArray1.findIndex((a) => a === 6)}
+      <br />
+      threeIndex = {threeIndex}
+      <br />
+      threeIndex = {String(threeIndex)}
       <hr />
     </div>
   );

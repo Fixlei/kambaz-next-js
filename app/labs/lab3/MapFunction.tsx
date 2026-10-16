@@ -5,7 +5,8 @@ export default function MapFunction() {
   //eslint-disable-next-line prefer-const
   let numberArray1 = [1, 2, 3, 4, 5, 6];
   const square = (a: number) => a * a;
-  const todos = ["Buy milk", "Feed the pets"];
+  // With AI: "Email the TA" is the sample fourth todo
+  const todos = ["Buy milk", "Feed the pets", "code some code", "Email the TA"];
   const squares = numberArray1.map(square);
   const cubes = numberArray1.map((a) => a * a * a);
   return (
@@ -14,6 +15,9 @@ export default function MapFunction() {
       squares = {squares}
       <br />
       cubes = {cubes}
+      <br />
+      {/* With AI: doubles */}
+      doubles = {numberArray1.map((a) => a * 2)}
       <br />
       Todos:
       <ol>
