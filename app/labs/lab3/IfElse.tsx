@@ -2,6 +2,7 @@
 //based on predicates that compare values and variables.
 
 export default function IfElse() {
+  //let true1 = false,
   //eslint-disable-next-line prefer-const
   let true1 = true,
     //eslint-disable-next-line prefer-const
@@ -11,6 +12,9 @@ export default function IfElse() {
       <h4>If Else</h4>
       {true1 && <p>true1</p>}
       {!false1 ? <p>!false1</p> : <p>false1</p>}
+      {!false1 && <p>not false1</p>}
+      {/* With AI: hidden short-circuit example */}
+      {false1 && <p>false1</p>}
       <hr />
     </div>
   );

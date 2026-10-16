@@ -26,6 +26,15 @@ export default function VariableTypes() {
   let isStringSecond = typeof stringSecond;
   //eslint-disable-next-line prefer-const
   let isBoolean = typeof booleanVariable;
+  // With AI: sample number and string
+  //eslint-disable-next-line prefer-const
+  let sampleCount = 42;
+  //eslint-disable-next-line prefer-const
+  let sampleLabel = "Lab 3";
+  //eslint-disable-next-line prefer-const
+  let isSampleCount = typeof sampleCount;
+  //eslint-disable-next-line prefer-const
+  let isSampleLabel = typeof sampleLabel;
   return (
     <div id="wd-variable-types">
       <h4>Variables Types</h4>
@@ -50,6 +59,14 @@ export default function VariableTypes() {
       isNumberSecond = {isNumberSecond}
       <br />
       isBoolean = {isBoolean}
+      <br />
+      sampleCount = {sampleCount}
+      <br />
+      isSampleCount = {isSampleCount}
+      <br />
+      sampleLabel = {sampleLabel}
+      <br />
+      isSampleLabel = {isSampleLabel}
       <hr />
     </div>
   );

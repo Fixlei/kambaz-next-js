@@ -26,13 +26,15 @@ export default function BooleanVariables() {
   //eslint-disable-next-line prefer-const
   let stringVar2 = "Hello world!";
   //eslint-disable-next-line prefer-const
-  let isTrue1 = stringVar1 === stringVar2;
+  let false4 = stringVar1 === stringVar2;
+  const true7 = typeof numberVariable+"" === typeof floatingPointNumber + "";
+
   // With AI: sample comparison
   const true6 = numberVariable !== 0;
   return (
     <div id="wd-boolean-variables">
       <h4>Boolean Variables</h4>
-      true1 = {true1 + ""}
+      true1 = {true1 + ""}  
       <br />
       false1 = {false1 + ""}
       <br />
@@ -49,8 +51,11 @@ export default function BooleanVariables() {
       false3 = {false3 + ""}
       <br />
       true6 = {true6 + ""}
-      <hr />
-      istrue1 = {isTrue1 + ""}
+      <br />
+      false4 = {false4 + ""}
+      <br />
+      true7 = {true7 + ""}
+        <hr />
     </div>
   );
 }
