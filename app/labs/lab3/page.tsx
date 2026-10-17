@@ -27,6 +27,13 @@ import JsonStringify from "./JsonStringify";
 import House from "./House";
 import DestructingImports from "./DestructingImports";
 import OptionalChaining from "./OptionalChaining";
+import Classes from "./Classes";
+import Styles from "./Styles";
+import ClientComponentDemo from "./ClientComponentDemo";
+import ServerComponentDemo from "./ServerComponentDemo";
+import Add from "./Add";
+import Square from "./Square";
+import Highlight from "./Highlight";
 
 export default function Lab3() {
   console.log("Hello World!");
@@ -63,6 +70,30 @@ export default function Lab3() {
       <FunctionDestructing />
       <DestructingImports />
       <OptionalChaining />
+      <Classes />
+      <Styles />
+      <ClientComponentDemo />
+      <ServerComponentDemo />
+      <Add a={3} b={4} />
+      <Add a={10} b={20} />
+      {/* With AI: sample Add instance */}
+      <Add a={7} b={8} />
+      <h4>Square of 4</h4>
+      <Square>4</Square>
+      {/* With AI: sample square and highlight */}
+      <p>
+        Square of 5 = <Square>5</Square>
+      </p>
+      <Highlight>Children can be any JSX</Highlight>
+      <hr />
+      <Highlight>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </Highlight>
+      <br />
+      <hr />
+      <Highlight>This is my own sentence, Child Component.</Highlight>
+      <hr />
+      <Square>9</Square>
     </div>
   );
 }
