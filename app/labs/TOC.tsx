@@ -1,40 +1,88 @@
+//It maps a LINKS array, and when a link's match function says the pathname 
+// belongs to that lab, it gives that link an inline style object (§3.5.2) 
+// and aria-current="page".
+"use client";
+
 import Link from "next/link";
-// Labs sidebar: links to each lab, shown on every /labs page via app/labs/layout.tsx.
-// TOC: table of contents
+import { usePathname } from "next/navigation";
+
+const LINKS = [
+  { href: "/labs", id: "wd-home-link", label: "Home", match: (p: string) => p === "/labs" },
+  { href: "/labs/lab1", id: "wd-lab1-link", label: "Lab 1", match: (p: string) => p.endsWith("/lab1") || p.includes("/lab1/") },
+  { href: "/labs/lab2", id: "wd-lab2-link", label: "Lab 2", match: (p: string) => p.includes("/lab2") },
+  { href: "/labs/lab3", id: "wd-lab3-link", label: "Lab 3", match: (p: string) => p.includes("/lab3") },
+  { href: "/", id: "wd-kambaz-link", label: "Kambaz", match: () => false },
+  { href: "https://kambaz.dev/book/ch3", id: "wd-book-ch3-link", label: "Book Ch3", match: () => false },
+  // Chapter 1 link kept from the original TOC (A1 checks for wd-toc-book-link)
+  { href: "/book/ch1", id: "wd-toc-book-link", label: "Chapter 1", match: () => false },
+] as const;
+
+const activeStyle = {
+  backgroundColor: "#2563eb",
+  color: "white",
+  borderRadius: "4px",
+  padding: "2px 8px",
+  textDecoration: "none",
+};
 
 export default function TOC() {
+  const pathname = usePathname() ?? "";
   return (
     <ul>
-      <li>
-        <Link href="/labs" id="wd-home-link">
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link href="/labs/lab1">Lab 1: HTML</Link>
-      </li>
-      <li>
-        <Link href="/labs/lab2">Lab 2: CSS Basics</Link>
-      </li>
-      <li>
-        <Link href="/labs/lab3">Lab 3: JavaScript Fundamentals</Link>
-      </li>
-      <li>
-        <Link href="/labs/lab4">Lab 4: More JavaScript</Link>
-      </li>
-      <li>
-        <Link href="/labs/lab5">Lab 5: Express REST APIs</Link>
-      </li>
-      <li>
-        <Link href="/" id="wd-kambaz-link">
-          Kambaz
-        </Link>
-      </li>
-      <li>
-        <Link id="wd-toc-book-link" href="/book/ch1">
-          Chapter 1
-        </Link>
-      </li>
+      {LINKS.map((link) => {
+        const active = link.match(pathname);
+        return (
+          <li key={link.id}>
+            <Link
+              href={link.href}
+              id={link.id}
+              style={active ? activeStyle : undefined}
+              aria-current={active ? "page" : undefined}
+            >
+              {link.label}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }
+
+
+//import Link from "next/link";
+// export default function TOC() {
+//   return (
+//     <ul>
+//       <li>
+//         <Link href="/labs" id="wd-home-link">
+//           Home
+//         </Link>
+//       </li>
+//       <li>
+//         <Link href="/labs/lab1">Lab 1: HTML</Link>
+//       </li>
+//       <li>
+//         <Link href="/labs/lab2">Lab 2: CSS Basics</Link>
+//       </li>
+//       <li>
+//         <Link href="/labs/lab3">Lab 3: JavaScript Fundamentals</Link>
+//       </li>
+//       <li>
+//         <Link href="/labs/lab4">Lab 4: More JavaScript</Link>
+//       </li>
+//       <li>
+//         <Link href="/labs/lab5">Lab 5: Express REST APIs</Link>
+//       </li>
+//       <li>
+//         <Link href="/" id="wd-kambaz-link">
+//           Kambaz
+//         </Link>
+//       </li>
+//       <li>
+//         <Link id="wd-toc-book-link" href="/book/ch1">
+//           Chapter 1
+//         </Link>
+//       </li>
+//     </ul>
+//   );
+// }

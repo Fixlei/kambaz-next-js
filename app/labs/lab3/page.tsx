@@ -34,6 +34,9 @@ import ServerComponentDemo from "./ServerComponentDemo";
 import Add from "./Add";
 import Square from "./Square";
 import Highlight from "./Highlight";
+import PathParameters from "./PathParameters";
+import TodoItem from "./todos/TodoItem";
+import TodoList from "./todos/TodoList";
 
 export default function Lab3() {
   console.log("Hello World!");
@@ -94,6 +97,9 @@ export default function Lab3() {
       <Highlight>This is my own sentence, Child Component.</Highlight>
       <hr />
       <Square>9</Square>
+      <PathParameters />
+      <TodoItem />
+      <TodoList />
     </div>
   );
 }
