@@ -1,4 +1,4 @@
-//3.4.5 Find Function
+//3.4.5 Find Function.
 //find returns the first element that matches a predicate, or undefined.
 
 export default function FindFunction() {
@@ -17,8 +17,6 @@ export default function FindFunction() {
       four = {four}
       <br />
       ten={ten};
-      <br />
-      ten= {String(ten)}
       <br />
       string3 = {string3}
       <br />

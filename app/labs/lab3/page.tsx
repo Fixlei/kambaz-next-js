@@ -25,8 +25,11 @@ import FunctionDestructing from "./FunctionDestructing";
 import Spreader from "./Spreader";
 import JsonStringify from "./JsonStringify";
 import House from "./House";
+import DestructingImports from "./DestructingImports";
+import OptionalChaining from "./OptionalChaining";
 
 export default function Lab3() {
+  console.log("Hello World!");
   return (
     <div id="wd-lab3">
       <h2>Lab 3: JavaScript Fundamentals</h2>
@@ -53,11 +56,13 @@ export default function Lab3() {
       <FilterFunction />
       <IncludesSomeEvery />
       <ReduceFunction />
-      <Destructing />
-      <FunctionDestructing />
-      <Spreader />
       <JsonStringify />
       <House />
+      <Spreader />
+      <Destructing />
+      <FunctionDestructing />
+      <DestructingImports />
+      <OptionalChaining />
     </div>
   );
 }
