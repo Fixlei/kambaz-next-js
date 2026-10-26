@@ -1,5 +1,9 @@
 import { ReactNode } from "react";
 import CourseNavigation from "./Navigation";
+import Breadcrumb from "./Breadcrumb";
+import { courses } from "../../database";
+import { FaAlignJustify } from "react-icons/fa6";
+import { Coral_Pixels } from "next/font/google";
 
 // Shared layout for course pages: every route under /courses/[cid] (home, modules, etc.) renders inside it
 export default async function CoursesLayout({
@@ -11,9 +15,13 @@ export default async function CoursesLayout({
 }>) {
   // Extract the course ID from the dynamic route
   const { cid } = await params;
+  const course = courses.find((c) => c._id === cid);
   return (
     <div id="wd-courses">
-      <h2>Courses {cid}</h2>
+      <h2 className="p-4 text-2xl text-red-600 font-semibold">
+        <FaAlignJustify className="me-4 mb-1 inline text-xl" />
+        <Breadcrumb course={course} /> ({course?._id}){cid}
+      </h2>
       <hr />
       {/* Two-column layout: course navigation on the left, page content on the right */}
       <div className="flex gap-4">

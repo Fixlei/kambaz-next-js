@@ -37,7 +37,7 @@ export default function KambazNavigation() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/neu.png"
+          src="/images/neu.jpg"
           width={75}
           height={75}
           alt="Northeastern University"

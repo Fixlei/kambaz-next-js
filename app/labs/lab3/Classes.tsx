@@ -1,10 +1,10 @@
 import "./Classes.css";
 
 export default function Classes() {
-  //   const color = "blue";
-  //   const dangerous = true;
-  const color = "yellow";
-  const dangerous = false;
+  const color = "blue";
+  const dangerous = true;
+  // const color = "yellow";
+  // const dangerous = false;
   // With AI: sample dynamic shade
   const shade = "green";
   return (

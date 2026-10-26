@@ -16,7 +16,7 @@ export default function ImpliedReturn() {
       fourTimesFive = {fourTimesFive} <br />
       multiply(4, 5) = {multiply(4, 5)} <br />
       divide(20, 4) = {divide(20, 4)} <br />
-      square(2) = {square(2)};
+      square(7) = {square(7)};
       <hr />
     </div>
   );

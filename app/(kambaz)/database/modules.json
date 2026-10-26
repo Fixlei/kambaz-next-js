@@ -7,7 +7,7 @@
     "lessons": [
        {
         "_id": "L100",
-        "name": "what is Rocket",
+        "name": "#1. what is Rocket",
         "description": "Overview of different types of rocket engines.",
         "module": "M101"
       },
@@ -238,5 +238,32 @@
         "module": "M303"
       }
     ]
+  },
+    {
+    "_id": "M401",
+    "name": "Introduction to UX Design",
+    "description": "What user experience design is and why it matters.",
+    "course": "ITC2050",
+    "lessons": [
+      {
+        "_id": "L601",
+        "name": "What is UX",
+        "description": "Defining user experience.",
+        "module": "M401"
+      },
+      {
+        "_id": "L602",
+        "name": "User Research",
+        "description": "Interviews, surveys, and personas.",
+        "module": "M401"
+      },
+       {
+        "_id": "L603",
+        "name": "User Research",
+        "description": "Interviews, surveys, and personas.",
+        "module": "M401"
+      }
+    ]
   }
+
 ]

@@ -79,5 +79,32 @@
     "points": 100,
     "due": "2024-05-27",
     "available": "2024-05-20"
+  },
+  {
+    "_id": "A401",
+    "title": "UX-A1",
+    "course": "ITC2050",
+    "description": "Create two user personas for a campus app.",
+    "points": 100,
+    "due": "2024-05-27",
+    "available": "2024-05-20"
+  },
+  {  "_id": "A402",
+    "title": "UX-A2",
+    "course": "ITC2050",
+    "description": "Sketch low-fidelity wireframes for the main screens.",
+    "points": 100,
+    "due": "2024-05-27",
+    "available": "2024-05-20"
+  }
+  ,
+  {
+      "_id": "A403",
+    "title": "UX-A3",
+    "course": "ITC2050",
+    "description": "Run a usability test with three users and report findings.",
+    "points": 100,
+    "due": "2024-05-27",
+    "available": "2024-05-20"
   }
 ]
