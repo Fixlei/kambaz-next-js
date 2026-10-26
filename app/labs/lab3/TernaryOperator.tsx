@@ -11,7 +11,7 @@ export default function TernaryOperator() {
     <div id="wd-ternary-operator">
       <h4>Logged In</h4>
       {loggedIn ? <p>Welcome</p> : <p>Login </p>}
-      {hour < 12 ? <p>Good Morning</p> : <p>Good Afternoon</p>}
+      {hour < 12 ? <p>Good morning</p> : <p>Good afternoon</p>}
       {premium ? <p>Premium</p> : <p>Free</p>}
       <hr />
     </div>
