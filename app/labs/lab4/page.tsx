@@ -10,6 +10,10 @@ import BooleanStateVariables from "./BooleanStateVariables";
 import StringStateVariables from "./StringStateVariables";
 import DateStateVariable from "./DateStateVariable";
 import ObjectStateVariable from "./ObjectStateVariable";
+import ArrayStateVariable from "./ArrayStateVariable";
+import ProfileAlert from "./profile/ProfileAlert";
+import ProfileFields from "./profile/ProfileFields";
+import { Profile } from "./profile/profile";
 
 export default function Lab4() {
   const sayHello = (msg: string) => {
@@ -29,6 +33,47 @@ export default function Lab4() {
       <StringStateVariables />
       <DateStateVariable />
       <ObjectStateVariable />
+      <ArrayStateVariable />
+      <ProfileAlert
+        id={""}
+        submitted={false}
+        errors={{
+          firstName: undefined,
+          lastName: undefined,
+          password: undefined,
+          dob: undefined,
+          role: undefined,
+          newsletter: undefined,
+          topics: undefined,
+          theme: undefined,
+        }}
+      />
+      <ProfileFields
+        prefix={""}
+        profile={{
+          firstName: "",
+          lastName: "",
+          password: "",
+          dob: null,
+          role: "",
+          newsletter: false,
+          topics: [],
+          theme: "light",
+        }}
+        errors={{
+          firstName: undefined,
+          lastName: undefined,
+          password: undefined,
+          dob: undefined,
+          role: undefined,
+          newsletter: undefined,
+          topics: undefined,
+          theme: undefined,
+        }}
+        setProfile={function (profile: Profile): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
     </div>
   );
 }
