@@ -9,7 +9,6 @@ import {
 } from "./profile";
 import ProfileFields from "./ProfileFields";
 import ProfileAlert from "./ProfileAlert";
-import { error } from "console";
 
 export default function ProfileForm() {
   const [profile, setProfile] = useState<Profile>(emptyProfile);
@@ -21,7 +20,12 @@ export default function ProfileForm() {
     setSubmitted(true);
   };
   return (
-    <form id="wd-profile-form" onSubmit={save} noValidate>
+    <form
+      className="max-w-md rounded border-2 border-dashed border-green-600 p-4"
+      id="wd-profile-form"
+      onSubmit={save}
+      noValidate
+    >
       <h2>Profile</h2>
       <ProfileAlert
         id="wd-profile-alert"
@@ -38,7 +42,9 @@ export default function ProfileForm() {
         id="wd-profile-save"
         type="submit"
         className="mt-3 rounded bg-blue-600 px-4 py-1.5 text-white"
-      >Save</button>
+      >
+        Save
+      </button>
       <pre>{JSON.stringify(profile, null, 2)}</pre>
     </form>
   );

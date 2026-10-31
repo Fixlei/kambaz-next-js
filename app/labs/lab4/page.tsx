@@ -11,9 +11,12 @@ import StringStateVariables from "./StringStateVariables";
 import DateStateVariable from "./DateStateVariable";
 import ObjectStateVariable from "./ObjectStateVariable";
 import ArrayStateVariable from "./ArrayStateVariable";
-import ProfileAlert from "./profile/ProfileAlert";
-import ProfileFields from "./profile/ProfileFields";
-import { Profile } from "./profile/profile";
+import ProfileForm from "./profile/ProfileForm";
+import ParentStateComponent from "./ParentStateComponent";
+import PropDrilling from "./PropDrilling";
+import UrlEncoding from "./UrlEncoding";
+import QueryCalculator from "./url-encoding/query-params/QueryCalculator";
+import ContextExamples from "./context/ContextExamples";
 
 export default function Lab4() {
   const sayHello = (msg: string) => {
@@ -34,46 +37,12 @@ export default function Lab4() {
       <DateStateVariable />
       <ObjectStateVariable />
       <ArrayStateVariable />
-      <ProfileAlert
-        id={""}
-        submitted={false}
-        errors={{
-          firstName: undefined,
-          lastName: undefined,
-          password: undefined,
-          dob: undefined,
-          role: undefined,
-          newsletter: undefined,
-          topics: undefined,
-          theme: undefined,
-        }}
-      />
-      <ProfileFields
-        prefix={""}
-        profile={{
-          firstName: "",
-          lastName: "",
-          password: "",
-          dob: null,
-          role: "",
-          newsletter: false,
-          topics: [],
-          theme: "light",
-        }}
-        errors={{
-          firstName: undefined,
-          lastName: undefined,
-          password: undefined,
-          dob: undefined,
-          role: undefined,
-          newsletter: undefined,
-          topics: undefined,
-          theme: undefined,
-        }}
-        setProfile={function (profile: Profile): void {
-          throw new Error("Function not implemented.");
-        }}
-      />
+      <ProfileForm />
+      <ParentStateComponent />
+      <PropDrilling />
+      <UrlEncoding />
+      <QueryCalculator />
+      <ContextExamples />
     </div>
   );
 }

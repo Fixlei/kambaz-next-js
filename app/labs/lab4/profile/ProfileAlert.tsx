@@ -18,7 +18,7 @@ export default function ProfileAlert({
         role="status"
         className="mb-3 rounded bg-green-100 p-2 text-green-800"
       >
-        Profile saved
+        Profile saved.
       </div>
     );
   }
@@ -27,10 +27,10 @@ export default function ProfileAlert({
     <div
       id={id}
       role="alert"
-      className="mb-3 rounded bg-green-100 p-2 text-green-800"
+      className="mb-3 rounded bg-red-100 p-2 text-red-800"
     >
-      Please fic {count}
-      {count === 1 ? "field" : "fields"}below.
+      Please fix {count}
+      {count === 1 ? "field" : "fields"} below.
     </div>
   );
 }
