@@ -25,7 +25,7 @@ export default function PathCalculator() {
       <p>
         c=<code>{cRaw}</code>
       </p>
-      <h2 className="test-green-700"> Sum={sum}</h2>
+      <h2 className="text-green-700"> Sum={sum}</h2>
     </div>
   );
 }

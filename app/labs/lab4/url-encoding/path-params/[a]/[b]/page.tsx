@@ -6,11 +6,9 @@ export default function PathCalculator() {
   const params = useParams();
   const aRaw = params.a as string;
   const bRaw = params.b as string;
-  const cRaw = params.c as string;
-  const c = parseFloat(cRaw);
   const a = parseFloat(aRaw);
   const b = parseFloat(bRaw);
-  const sum = a + b + c;
+  const sum = a + b;
 
   return (
     <div id="wd-path-calculator">
@@ -22,10 +20,8 @@ export default function PathCalculator() {
       <p>
         b=<code>{bRaw}</code>
       </p>
-      <p>
-        c=<code>{cRaw}</code>
-      </p>
-      <h2 className="test-green-700"> Sum={sum}</h2>
+      <h2 className="text-green-700"> Sum={sum}</h2>
     </div>
   );
 }
+ 
