@@ -15,7 +15,6 @@ import ProfileForm from "./profile/ProfileForm";
 import ParentStateComponent from "./ParentStateComponent";
 import PropDrilling from "./PropDrilling";
 import UrlEncoding from "./UrlEncoding";
-import QueryCalculator from "./url-encoding/query-params/QueryCalculator";
 import ContextExamples from "./context/ContextExamples";
 
 export default function Lab4() {
@@ -41,7 +40,6 @@ export default function Lab4() {
       <ParentStateComponent />
       <PropDrilling />
       <UrlEncoding />
-      <QueryCalculator />
       <ContextExamples />
     </div>
   );

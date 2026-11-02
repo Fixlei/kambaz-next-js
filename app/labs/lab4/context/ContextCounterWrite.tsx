@@ -1,5 +1,7 @@
 import { useCounterContext } from "./CounterContext";
 
+import {INITIAL_COUNT} from "./CounterContext";
+
 export default function ContextCounterWrite() {
   const { count, setCount } = useCounterContext();
   return (
@@ -17,9 +19,17 @@ export default function ContextCounterWrite() {
         type="button"
         onClick={() => setCount(count - 1)}
         id="wd-context-down-click"
-        className="rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
+        className="me-2 rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
       >
         Down
+      </button>
+      <button
+        type="button"
+        onClick={() => setCount(INITIAL_COUNT)}
+        id="wd-context-reset-click"
+        className="rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
+      >
+        Reset
       </button>
     </div>
   );
