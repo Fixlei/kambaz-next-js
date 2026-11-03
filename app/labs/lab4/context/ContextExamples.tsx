@@ -3,6 +3,9 @@
 import { CounterProvider } from "./CounterContext";
 import ContextCounterRead from "./ContextCounterRead";
 import ContextCounterWrite from "./ContextCounterWrite";
+import { TodosProvider } from "../todo/todosContext";
+import ReactContextTodoList from "../todo/ReactContextTodoList";
+import ContextProfileForm from "./ContextProfileForm";
 
 export default function ContextExamples() {
   return (
@@ -16,7 +19,12 @@ export default function ContextExamples() {
         <ContextCounterRead />
         <ContextCounterWrite />
       </CounterProvider>
+
+      <TodosProvider>
+        <ReactContextTodoList />
+      </TodosProvider>
       <hr />
+      <ContextProfileForm />
     </div>
   );
 }
