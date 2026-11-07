@@ -1,34 +1,30 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const links = ["Signin", "Signup", "Profile"];
+import { useAccountContext } from "./AccountContext";
 
 // Account sidebar links; the link for the current page is highlighted, the rest are red
 export default function AccountNavigation() {
+  const { currentUser } = useAccountContext();
+  const links = currentUser
+    ? (["profile"] as const)
+    : (["signin", "signup"] as const);
   const pathname = usePathname() ?? "";
   return (
-    <div
-      id="wd-account-navigation"
-      className="wd list-group rounded-none text-lg"
-    >
-      {links.map((link) => {
-        const path = `/account/${link.toLowerCase()}`;
-        return (
-          <Link
-            key={link}
-            href={path}
-            id={`wd-account-${link.toLowerCase()}-link`}
-            className={
-              pathname === path
-                ? "list-group-item active border-0"
-                : "list-group-item border-0 text-red-600"
-            }
-          >
-            {link}
+    <div id="wd-account-navigation">
+      {links.map((link) => (
+        <span key={link}>
+          <Link href={`/account/${link}`}>
+            {link === "signin"
+              ? "Signin"
+              : link === "signup"
+                ? "Signup"
+                : "Profile"}
           </Link>
-        );
-      })}
+          <br />
+        </span>
+      ))}
     </div>
   );
 }

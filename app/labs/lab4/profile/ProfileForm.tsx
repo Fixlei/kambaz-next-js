@@ -12,11 +12,11 @@ import ProfileAlert from "./ProfileAlert";
 
 export default function ProfileForm() {
   const [profile, setProfile] = useState<Profile>(emptyProfile);
-  const [errors, seterrors] = useState<ProfileErrors>({});
+  const [errors, setErrors] = useState<ProfileErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const save = (e: FormEvent) => {
     e.preventDefault();
-    seterrors(validateProfile(profile));
+    setErrors(validateProfile(profile));
     setSubmitted(true);
   };
   return (

@@ -1,14 +1,14 @@
+"use client";
 import { FaPlus, FaSearch } from "react-icons/fa";
+import { useParams, useRouter } from "next/navigation";
 import AssignmentItem from "./AssignmentItem";
-import * as db from "../../../database";
+import { useAssignmentsStore } from "@/app/(kambaz)/store/assignmentsStore";
 
-export default async function Assignments({
-  params,
-}: {
-  params: Promise<{ cid: string }>;
-}) {
-  const { cid } = await params;
-  const assignments = db.assignments.filter(
+export default function Assignments() {
+  const { cid } = useParams<{ cid: string }>();
+  const router = useRouter();
+  const allAssignments = useAssignmentsStore((state) => state.assignments);
+  const assignments = allAssignments.filter(
     (assignment) => assignment.course === cid,
   );
   return (
@@ -33,6 +33,7 @@ export default async function Assignments({
           <button
             id="wd-add-assignment"
             type="button"
+            onClick={()=>router.push(`/courses/${cid}/assignments/new`)}
             className="inline-flex items-center gap-1 rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
           >
             <FaPlus /> Assignment

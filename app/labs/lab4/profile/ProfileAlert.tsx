@@ -30,7 +30,7 @@ export default function ProfileAlert({
       className="mb-3 rounded bg-red-100 p-2 text-red-800"
     >
       Please fix {count}
-      {count === 1 ? "field" : "fields"} below.
+      {count === 1 ? " field" : " fields"} below.
     </div>
   );
 }

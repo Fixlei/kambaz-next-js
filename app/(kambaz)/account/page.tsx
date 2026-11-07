@@ -1,6 +1,13 @@
-import { redirect } from "next/navigation";
+"use client";
 
-// Visiting /account on its own sends the user straight to the Signin page
+import { redirect } from "next/navigation";
+import { useAccountContext } from "./AccountContext";
+
 export default function AccountPage() {
-  redirect("/account/signin");
+  const { currentUser } = useAccountContext();
+  if (!currentUser) {
+    redirect("/account/signin");
+  } else {
+    redirect("/account/profile");
+  }
 }
