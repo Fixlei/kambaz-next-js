@@ -1,11 +1,13 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import { useParams } from "next/navigation";
 import CourseNavigation from "./Navigation";
 import Breadcrumb from "./Breadcrumb";
 import { FaAlignJustify } from "react-icons/fa6";
 import { useCoursesStore } from "../../store/coursesStore";
+import { redirect, useParams } from "next/navigation";
+import { useAccountContext } from "../../account/AccountContext";
+import { useEnrollmentsStore } from "../../store/enrollmentsStore";
 
 // Shared layout for course pages: every route under /courses/[cid] (home, modules, etc.) renders inside it
 export default function CoursesLayout({
@@ -18,6 +20,14 @@ export default function CoursesLayout({
   const courses = useCoursesStore((state) => state.courses);
   const course = courses.find((c) => c._id === courseId);
   const [showCourseNav, setShowCourseNav] = useState(true);
+  const { currentUser } = useAccountContext();
+  const enrollments = useEnrollmentsStore((state) => state.enrollments);
+  const enrolled = enrollments.some(
+    (e) => e.user === currentUser?._id && e.course === courseId,
+  );
+  if (currentUser && !enrolled) {
+    redirect("/dashboard");
+  }
 
   return (
     <div id="wd-courses">

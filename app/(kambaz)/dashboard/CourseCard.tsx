@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useCoursesStore, type Course } from "../store/coursesStore";
+import { useAccountContext } from "../account/AccountContext";
+import { useEnrollmentsStore } from "../store/enrollmentsStore";
 
 export default function CourseCard({
   course,
@@ -10,6 +12,20 @@ export default function CourseCard({
   onEdit: () => void;
 }) {
   const deleteCourse = useCoursesStore((state) => state.deleteCourse);
+  const { currentUser } = useAccountContext();
+  const enrollments = useEnrollmentsStore((state) => state.enrollments);
+  const enrollIntoCourse = useEnrollmentsStore(
+    (state) => state.enrollIntoCourse,
+  );
+  const unenrollFromCourse = useEnrollmentsStore(
+    (state) => state.unenrollFromCourse,
+  );
+  const enrolled =
+    !!currentUser &&
+    enrollments.some(
+      (e) => e.user === currentUser._id && e.course === course._id,
+    );
+
   return (
     <div className="wd-dashboard-course w-[300px] max-w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm">
       <Link
@@ -58,6 +74,30 @@ export default function CourseCard({
           >
             Delete
           </button>
+          {currentUser &&
+            (enrolled ? (
+              <button
+                type="button"
+                className="wd-unenroll-click ms-2 inline-flex items-center justify-center rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
+                onClick={(event) => {
+                  event.preventDefault();
+                  unenrollFromCourse(currentUser._id, course._id);
+                }}
+              >
+                Unenroll
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="wd-enroll-click ms-2 inline-flex items-center justify-center rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white"
+                onClick={(event) => {
+                  event.preventDefault();
+                  enrollIntoCourse(currentUser._id, course._id);
+                }}
+              >
+                Enroll
+              </button>
+            ))}
         </div>
       </Link>
     </div>

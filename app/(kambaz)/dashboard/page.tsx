@@ -8,26 +8,41 @@ import {
   type Course,
 } from "../store/coursesStore";
 import { useAccountContext } from "../account/AccountContext";
-import * as db from "../database";
+import { useEnrollmentsStore } from "../store/enrollmentsStore";
 
 export default function Dashboard() {
   const courses = useCoursesStore((state) => state.courses);
   const addCourse = useCoursesStore((state) => state.addCourse);
   const updateCourse = useCoursesStore((state) => state.updateCourse);
   const [course, setCourse] = useState<Course>(emptyCourse);
-
   const { currentUser } = useAccountContext();
-  const visibleCourses = currentUser
-    ? courses.filter((c) =>
-        db.enrollments.some(
-          (enrollment) =>
-            enrollment.user === currentUser._id && enrollment.course === c._id,
-        ),
-      )
-    : courses;
+  const enrollments = useEnrollmentsStore((state) => state.enrollments); // ← 从 store 读，不再用 db
+  const [showAllCourses, setShowAllCourses] = useState(false); // ← 切换开关
+  const visibleCourses =
+    currentUser && !showAllCourses
+      ? courses.filter((c) =>
+          enrollments.some(
+            (enrollment) =>
+              enrollment.user === currentUser._id &&
+              enrollment.course === c._id,
+          ),
+        )
+      : courses;
+
   return (
     <div id="wd-dashboard">
-      <h1 id="wd-dashboard-title">Dashboard</h1>
+      <div className="flex items-center justify-between">
+        <h1 id="wd-dashboard-title">Dashboard</h1>
+        <button
+          type="button"
+          id="wd-enrollments-toggle"
+          className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
+          onClick={() => setShowAllCourses(!showAllCourses)}
+        >
+          Enrollments
+        </button>
+      </div>
+
       <hr />
       <h5 className="flex flex-wrap items-center gap-2">
         New Course
@@ -85,7 +100,7 @@ export default function Dashboard() {
         id="wd-dashboard-courses"
         className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
       >
-        {courses.map((c) => (
+        {visibleCourses.map((c) => (
           <CourseCard key={c._id} course={c} onEdit={() => setCourse(c)} />
         ))}
       </div>
