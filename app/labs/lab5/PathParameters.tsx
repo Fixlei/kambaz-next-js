@@ -22,6 +22,7 @@ export default function PathParameters() {
         value={b}
         onChange={(e) => setB(e.target.value)}
       />
+      <br />
       <a
         id="wd-path-parameter-add"
         className="me-2 mb-2 inline-block rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
