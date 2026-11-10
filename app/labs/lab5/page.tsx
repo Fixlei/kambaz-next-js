@@ -1,8 +1,15 @@
-export default function Lab5(){
-    return(
-        <div id="wd-lab5">
-            <h2>Lab 5: Express REST APIs</h2>
-            {/** Add your Express REST API examples here */}
-        </div>
-    );
+import Environment from "./Environment";
+import PathParameters from "./PathParameters";
+import QueryParameters from "./QueryParameters";
+
+export default function Lab5() {
+  return (
+    <div id="wd-lab5">
+      <h2>Lab 5</h2>
+      <Environment />
+      <hr />
+      <PathParameters />
+      <QueryParameters />
+    </div>
+  );
 }
