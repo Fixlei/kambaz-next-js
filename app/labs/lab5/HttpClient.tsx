@@ -9,7 +9,7 @@ export default function HttpClient() {
   const fetWelcomeOnClick = async () => {
     const message = await client.fetchWelcomeMessage();
     setWelcomeOnClick(message);
-  };
+  }; 
 
   const fetchWelcomeOnLoad = async () => {
     const welcome = await client.fetchWelcomeMessage();
@@ -34,7 +34,7 @@ export default function HttpClient() {
       <p>
         Response from server: <b>{WelcomeClick}</b>
       </p>
-      <h4>REquesting on Load</h4>
+      <h4>Requesting on Load</h4>
       <p>
         REsponse from server: <b>{WelcomeOnLoad}</b>
       </p>
