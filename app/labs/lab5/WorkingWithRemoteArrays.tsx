@@ -128,6 +128,7 @@ export default function WorkingWithRemoteArrays() {
           onChange={(e) => setTodo({ ...todo, description: e.target.value })}
         />
       </div>
+
       <hr />
     </div>
   );
