@@ -1,47 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import CourseCard from "./CourseCard";
-import {
-  emptyCourse,
-  useCoursesStore,
-  type Course,
-} from "../store/coursesStore";
-import { useAccountContext } from "../account/AccountContext";
-import { useEnrollmentsStore } from "../store/enrollmentsStore";
+import { emptyCourse, type Course } from "../store/coursesStore";
+
+const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
+const COURSES_API = `${HTTP_SERVER}/api/courses`;
 
 export default function Dashboard() {
-  const courses = useCoursesStore((state) => state.courses);
-  const addCourse = useCoursesStore((state) => state.addCourse);
-  const updateCourse = useCoursesStore((state) => state.updateCourse);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [course, setCourse] = useState<Course>(emptyCourse);
-  const { currentUser } = useAccountContext();
-  const enrollments = useEnrollmentsStore((state) => state.enrollments); // ← 从 store 读，不再用 db
-  const [showAllCourses, setShowAllCourses] = useState(false); // ← 切换开关
-  const visibleCourses =
-    currentUser && !showAllCourses
-      ? courses.filter((c) =>
-          enrollments.some(
-            (enrollment) =>
-              enrollment.user === currentUser._id &&
-              enrollment.course === c._id,
-          ),
-        )
-      : courses;
+
+  async function loadCourses() {
+    try {
+      const { data } = await axios.get(COURSES_API);
+      setCourses(data);
+    } catch {
+      setCourses([]);
+    }
+  }
+
+  useEffect(() => {
+    // The published list lives on Express, so the first paint requests it.
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- load replaces the empty list
+    void loadCourses();
+  }, []);
+
+  async function addCourse() {
+    try {
+      await axios.post(COURSES_API, course);
+      await loadCourses();
+    } catch {
+      /* companion server may be down */
+    }
+  }
+
+  async function updateCourse() {
+    await axios.put(`${COURSES_API}/${course._id}`, course);
+    await loadCourses();
+  }
+
+  async function deleteCourse(courseId: string) {
+    await axios.delete(`${COURSES_API}/${courseId}`);
+    await loadCourses();
+  }
 
   return (
     <div id="wd-dashboard">
-      <div className="flex items-center justify-between">
-        <h1 id="wd-dashboard-title">Dashboard</h1>
-        <button
-          type="button"
-          id="wd-enrollments-toggle"
-          className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
-          onClick={() => setShowAllCourses(!showAllCourses)}
-        >
-          Enrollments
-        </button>
-      </div>
+      <h1 id="wd-dashboard-title">Dashboard</h1>
 
       <hr />
       <h5 className="flex flex-wrap items-center gap-2">
@@ -50,7 +57,7 @@ export default function Dashboard() {
           type="button"
           className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
           id="wd-add-new-course-click"
-          onClick={() => addCourse(course)}
+          onClick={addCourse}
         >
           Add
         </button>
@@ -58,7 +65,7 @@ export default function Dashboard() {
           type="button"
           className="rounded bg-yellow-400 px-3 py-1.5 text-sm font-medium"
           id="wd-update-course-click"
-          onClick={() => updateCourse(course)}
+          onClick={updateCourse}
         >
           Update
         </button>
@@ -76,32 +83,20 @@ export default function Dashboard() {
         onChange={(e) => setCourse({ ...course, description: e.target.value })}
         id="wd-course-description"
       />
-      <input
-        className="mb-2 block w-full max-w-xl rounded border border-neutral-300 px-3 py-1.5"
-        placeholder="Course number"
-        value={course.number}
-        onChange={(e) => setCourse({ ...course, number: e.target.value })}
-        id="wd-course-number"
-      />
-      <input
-        type="date"
-        value={course.startDate}
-        onChange={(event) =>
-          setCourse({ ...course, startDate: event.target.value })
-        }
-        id="wd-course-start-date"
-      />
       <hr />
-      <h2 id="wd-dashboard-published">
-        Published Courses ({visibleCourses.length})
-      </h2>
+      <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
       <hr />
       <div
         id="wd-dashboard-courses"
         className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
       >
-        {visibleCourses.map((c) => (
-          <CourseCard key={c._id} course={c} onEdit={() => setCourse(c)} />
+        {courses.map((c) => (
+          <CourseCard
+            key={c._id}
+            course={c}
+            onEdit={() => setCourse(c)}
+            onDelete={() => deleteCourse(c._id)}
+          />
         ))}
       </div>
     </div>

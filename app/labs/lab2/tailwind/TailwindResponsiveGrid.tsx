@@ -1,4 +1,4 @@
-//2.3.4.4 Grid columns by breakpoint， CSS Grid places children into columns, with a gap between the cells.
+//2.3.4.4 Grid columns by breakpoint, CSS Grid places children into columns, with a gap between the cells.
 //this function demos responsive grid layout: single column, then two columns, then four columns
 export default function TailwindResponsiveGrid() {
   return (

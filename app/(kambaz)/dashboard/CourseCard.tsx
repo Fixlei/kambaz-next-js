@@ -10,6 +10,7 @@ export default function CourseCard({
 }: {
   course: Course;
   onEdit: () => void;
+  onDelete:()=> void;
 }) {
   const deleteCourse = useCoursesStore((state) => state.deleteCourse);
   const { currentUser } = useAccountContext();

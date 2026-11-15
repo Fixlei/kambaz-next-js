@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import * as client from "../client";
 import { useAccountContext } from "../AccountContext";
 
 export default function Signup() {
@@ -11,21 +12,9 @@ export default function Signup() {
   const { setCurrentUser } = useAccountContext();
   const router = useRouter();
 
-  const signup = () => {
-    if (!username || !password) return;
-    setCurrentUser({
-      _id: crypto.randomUUID(),
-      username,
-      password,
-      firstName: "",
-      lastName: "",
-      email: "",
-      role: "STUDENT",
-      loginId: "",
-      section: "",
-      lastActivity: "",
-      totalActivity: "",
-    });
+  const signup = async () => {
+    const current = await client.signup({ username, password });
+    setCurrentUser(current);
     router.push("/account/profile");
   };
 

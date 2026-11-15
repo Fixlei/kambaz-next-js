@@ -1,15 +1,15 @@
 import { FaCheckCircle, FaPencilAlt, FaTrash } from "react-icons/fa";
 import { BsPlus } from "react-icons/bs";
 import { IoEllipsisVertical } from "react-icons/io5";
-import { useModulesStore } from "../../../store/modulesStore"; // ← 新增
+import { useModulesStore } from "../../../store/modulesStore";
 
 export default function ModuleControlButtons({
   moduleId,
 }: {
   moduleId: string;
 }) {
-  const deleteModule = useModulesStore((state) => state.deleteModule); // ← 新增：从 store 拿
-  const editModule = useModulesStore((state) => state.editModule); // ← 新增
+  const deleteModule = useModulesStore((state) => state.deleteModule);
+  const editModule = useModulesStore((state) => state.editModule);
   return (
     <div className="flex items-center gap-2">
       <FaPencilAlt

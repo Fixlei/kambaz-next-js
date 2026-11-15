@@ -6,8 +6,8 @@ const b = parseFloat(request.nextUrl.searchParams.get("b") ?? "");
 const operation = request.nextUrl.searchParams.get("operation");
 if(Number.isNaN(a)||Number.isNaN(b)){
     return Response.json({error:"Invalid numbers"}, {status:400});
-
 }
+
 let result:number;
 switch (operation) {
     case "add":
