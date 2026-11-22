@@ -51,7 +51,7 @@ export default function Labs() {
 
       <br />
       <a
-        href="https:github.com/Fixlei/webdev-server"
+        href="https://github.com/Fixlei/webdev-server"
         id="wd-github-server"
         target="_blank"
         rel="noreferrer"
