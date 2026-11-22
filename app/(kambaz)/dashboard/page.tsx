@@ -1,55 +1,74 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
-import CourseCard from "./CourseCard";
-import { emptyCourse, type Course } from "../store/coursesStore";
 
-const HTTP_SERVER = process.env.NEXT_PUBLIC_HTTP_SERVER;
-const COURSES_API = `${HTTP_SERVER}/api/courses`;
+import CourseCard from "./CourseCard";
+import * as client from "../courses/client";
+import {
+  emptyCourse,
+  useCoursesStore,
+  type Course,
+} from "../store/coursesStore";
+import { useAccountContext } from "../account/AccountContext";
+import { useEnrollmentsStore } from "../store/enrollmentsStore";
 
 export default function Dashboard() {
-  const [courses, setCourses] = useState<Course[]>([]);
+  const { currentUser } = useAccountContext();
+  const courses = useCoursesStore((state) => state.courses);
+  const setCourses = useCoursesStore((state) => state.setCourses);
+  const addCourse = useCoursesStore((state) => state.addCourse);
+  const deleteCourse = useCoursesStore((state) => state.deleteCourse);
+  const updateCourse = useCoursesStore((state) => state.updateCourse);
   const [course, setCourse] = useState<Course>(emptyCourse);
-
-  async function loadCourses() {
-    try {
-      const { data } = await axios.get(COURSES_API);
-      setCourses(data);
-    } catch {
-      setCourses([]);
-    }
-  }
+  const setEnrollments = useEnrollmentsStore((state) => state.setEnrollments);
+  const enrollIntoCourse = useEnrollmentsStore(
+    (state) => state.enrollIntoCourse,
+  );
+  const [showAllCourses, setShowAllCourses] = useState(false);
 
   useEffect(() => {
-    // The published list lives on Express, so the first paint requests it.
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- load replaces the empty list
-    void loadCourses();
-  }, []);
+    const load = async () => {
+      try {
+        setCourses(
+          showAllCourses
+            ? await client.fetchAllCourses()
+            : await client.findMyCourses(),
+        );
+        setEnrollments(await client.findMyEnrollments());
+      } catch {
+        setCourses([]);
+      }
+    };
+    load();
+  }, [currentUser, setCourses, showAllCourses, setEnrollments]);
 
-  async function addCourse() {
-    try {
-      await axios.post(COURSES_API, course);
-      await loadCourses();
-    } catch {
-      /* companion server may be down */
-    }
-  }
+  const onAddCourse = async () => {
+    const newCourse = await client.createCourse(course);
+    addCourse(newCourse);
+    if (currentUser) enrollIntoCourse(currentUser._id, newCourse._id);
+  };
 
-  async function updateCourse() {
-    await axios.put(`${COURSES_API}/${course._id}`, course);
-    await loadCourses();
-  }
+  const onUpdateCourse = async () => {
+    const saved = await client.updateCourse(course);
+    updateCourse(saved);
+  };
 
-  async function deleteCourse(courseId: string) {
-    await axios.delete(`${COURSES_API}/${courseId}`);
-    await loadCourses();
-  }
-
+  const onDeleteCourse = async (courseId: string) => {
+    await client.deleteCourse(courseId);
+    deleteCourse(courseId);
+  };
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
 
+      <button
+        type="button"
+        id="wd-enrollments-click"
+        className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
+        onClick={() => setShowAllCourses(!showAllCourses)}
+      >
+        {showAllCourses ? "My Courses" : "Enrollments"}
+      </button>
       <hr />
       <h5 className="flex flex-wrap items-center gap-2">
         New Course
@@ -57,7 +76,7 @@ export default function Dashboard() {
           type="button"
           className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
           id="wd-add-new-course-click"
-          onClick={addCourse}
+          onClick={onAddCourse}
         >
           Add
         </button>
@@ -65,7 +84,7 @@ export default function Dashboard() {
           type="button"
           className="rounded bg-yellow-400 px-3 py-1.5 text-sm font-medium"
           id="wd-update-course-click"
-          onClick={updateCourse}
+          onClick={onUpdateCourse}
         >
           Update
         </button>
@@ -95,7 +114,7 @@ export default function Dashboard() {
             key={c._id}
             course={c}
             onEdit={() => setCourse(c)}
-            onDelete={() => deleteCourse(c._id)}
+            onDelete={() => onDeleteCourse(c._id)}
           />
         ))}
       </div>

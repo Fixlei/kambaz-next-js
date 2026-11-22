@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import CourseNavigation from "./Navigation";
 import Breadcrumb from "./Breadcrumb";
 import { FaAlignJustify } from "react-icons/fa6";
@@ -8,6 +8,7 @@ import { useCoursesStore } from "../../store/coursesStore";
 import { redirect, useParams } from "next/navigation";
 import { useAccountContext } from "../../account/AccountContext";
 import { useEnrollmentsStore } from "../../store/enrollmentsStore";
+import * as client from "../client";
 
 // Shared layout for course pages: every route under /courses/[cid] (home, modules, etc.) renders inside it
 export default function CoursesLayout({
@@ -18,14 +19,31 @@ export default function CoursesLayout({
   // Extract the course ID from the dynamic route
   const { cid: courseId } = useParams<{ cid: string }>();
   const courses = useCoursesStore((state) => state.courses);
+  const setCourses = useCoursesStore((state) => state.setCourses);
   const course = courses.find((c) => c._id === courseId);
   const [showCourseNav, setShowCourseNav] = useState(true);
   const { currentUser } = useAccountContext();
   const enrollments = useEnrollmentsStore((state) => state.enrollments);
+  const setEnrollments = useEnrollmentsStore((state) => state.setEnrollments);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setEnrollments(await client.findMyEnrollments());
+        setCourses(await client.findMyCourses());
+      } catch {
+        setEnrollments([]);
+      }
+      setLoaded(true);
+    };
+    load();
+  }, [currentUser, setEnrollments, setCourses]);
+
   const enrolled = enrollments.some(
     (e) => e.user === currentUser?._id && e.course === courseId,
   );
-  if (currentUser && !enrolled) {
+  if (loaded && currentUser && !enrolled) {
     redirect("/dashboard");
   }
 

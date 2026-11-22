@@ -2,19 +2,33 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAccountContext, type User } from "../AccountContext";
+import * as client from "../client";
 
 export default function Profile() {
+  const { setCurrentUser } = useAccountContext();
   const [profile, setProfile] = useState<User | null>(null);
-  const { currentUser, setCurrentUser } = useAccountContext();
   const router = useRouter();
   useEffect(() => {
-    if (!currentUser) {
-      router.push("/account/signin");
-      return;
-    }
-    setProfile(currentUser);
-  }, [currentUser, router]);
-  const signout = () => {
+    const fetchProfile = async () => {
+      try {
+        const user = await client.profile();
+        setProfile(user);
+        setCurrentUser(user);
+      } catch {
+        router.push("/account/signin");
+      }
+    };
+    fetchProfile();
+  }, [router, setCurrentUser]);
+
+  const updateProfile = async () => {
+    if (!profile) return;
+    const updatedUser = await client.updateUser(profile);
+    setCurrentUser(updatedUser);
+  };
+
+  const signout = async () => {
+    await client.signout();
     setCurrentUser(null);
     router.push("/account/signin");
   };
@@ -54,8 +68,16 @@ export default function Profile() {
         id="wd-role"
         value={profile.role}
         onChange={(e) => setProfile({ ...profile, role: e.target.value })}
-      />
-
+      >
+        <option value="USER">User</option>
+        <option value="ADMIN">Admin</option>
+        <option value="FACULTY">Faculty</option>
+        <option value="STUDENT">Student</option>
+        <option value="TA">TA</option>
+      </select>
+      <button type="button" onClick={updateProfile} id="wd-update-profile-btn">
+        Update
+      </button>
       <button type="button" onClick={signout} id="wd-signout-btn">
         Sign Out
       </button>

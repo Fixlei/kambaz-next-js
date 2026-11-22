@@ -2,6 +2,7 @@ import { FaCheckCircle, FaPencilAlt, FaTrash } from "react-icons/fa";
 import { BsPlus } from "react-icons/bs";
 import { IoEllipsisVertical } from "react-icons/io5";
 import { useModulesStore } from "../../../store/modulesStore";
+import * as client from "../../client";
 
 export default function ModuleControlButtons({
   moduleId,
@@ -19,7 +20,10 @@ export default function ModuleControlButtons({
       />
       <FaTrash
         className="cursor-pointer text-red-600"
-        onClick={() => deleteModule(moduleId)}
+        onClick={async () => {
+          await client.deleteModule(moduleId);
+          deleteModule(moduleId);
+        }}
         title="Delete module"
       />
       <FaCheckCircle className="text-green-600" />

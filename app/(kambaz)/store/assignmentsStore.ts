@@ -1,45 +1,42 @@
 "use client";
 
 import { create } from "zustand";
-import assignmentsJson from "../database/assignments.json";
 
 export type Assignment = {
   _id: string;
   title: string;
-  course:string;
+  course: string;
   description: string;
   points: number;
-  due:string;
-  available:string;
-  until?:string;
+  due: string;
+  available: string;
+  until?: string;
 };
 
 export const emptyAssignment: Assignment = {
   _id: "",
   title: "",
-  course:"",
+  course: "",
   description: "",
   points: 100,
   due: "",
-  available:"",
+  available: "",
   until: "",
 };
 
 type AssignmentsStore = {
   assignments: Assignment[];
-  addAssignment: (assignment:Assignment) => void;
+  addAssignment: (assignment: Assignment) => void;
   deleteAssignment: (assignmentId: string) => void;
   updateAssignment: (assignment: Assignment) => void;
+  setAssignments: (assignments: Assignment[]) => void;
 };
 
 export const useAssignmentsStore = create<AssignmentsStore>((set) => ({
-  assignments: assignmentsJson as Assignment[],
-  addAssignment:(assignment) =>
+  assignments: [],
+  addAssignment: (assignment) =>
     set((state) => ({
-      assignments: [
-        ...state.assignments,
-        {...assignment, _id: crypto.randomUUID(),},
-      ],
+      assignments: [...state.assignments, assignment],
     })),
   deleteAssignment: (assignmentId) =>
     set((state) => ({
@@ -47,6 +44,10 @@ export const useAssignmentsStore = create<AssignmentsStore>((set) => ({
     })),
   updateAssignment: (assignment) =>
     set((state) => ({
-      assignments: state.assignments.map((a) => (a._id === assignment._id ? assignment : a)),
+      assignments: state.assignments.map((a) =>
+        a._id === assignment._id ? assignment : a,
+      ),
     })),
+
+  setAssignments: (assignments) => set({ assignments }),
 }));

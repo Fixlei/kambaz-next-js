@@ -10,6 +10,7 @@ export default function WorkingWithRemoteArraysAsync() {
     id: number;
     title: string;
     completed: boolean;
+    editing?: boolean;
   };
 
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -56,6 +57,7 @@ export default function WorkingWithRemoteArraysAsync() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const deleteTodo = async (todo: Todo) => {
     try {
+      setErrorMessage(null);
       await client.deleteTodo(todo);
       setTodos(todos.filter((t) => t.id !== todo.id));
     } catch (error) {
@@ -96,10 +98,28 @@ export default function WorkingWithRemoteArraysAsync() {
       <ul id="wd-todos">
         {todos.map((todo) => (
           <li key={todo.id} className="flex items-center gap-2">
-            <span className={todo.completed ? "line-through" : ""}>
-              {" "}
-              {todo.title}
-            </span>
+            {todo.editing ? (
+              <input
+                className="rounded border border-neutral-300 px-2 py-1"
+                value={todo.title}
+                onChange={(e) =>
+                  setTodos(
+                    todos.map((t) =>
+                      t.id === todo.id ? { ...t, title: e.target.value } : t,
+                    ),
+                  )
+                }
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    updateTodo({ ...todo, editing: false });
+                  }
+                }}
+              />
+            ) : (
+              <span className={todo.completed ? "line-through" : ""}>
+                {todo.title}
+              </span>
+            )}
             <FaTrash
               onClick={() => removeTodo(todo)}
               id="wd-remove-todo"

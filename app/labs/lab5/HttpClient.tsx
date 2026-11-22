@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import * as client from "./client";
 
 export default function HttpClient() {
-  const [WelcomeClick, setWelcomeOnClick] = useState("");
+  const [WelcomeOnClick, setWelcomeOnClick] = useState("");
   const [WelcomeOnLoad, setWelcomeOnLoad] = useState("");
 
-  const fetWelcomeOnClick = async () => {
+  const fetchWelcomeOnClick = async () => {
     const message = await client.fetchWelcomeMessage();
     setWelcomeOnClick(message);
   }; 
@@ -27,16 +27,16 @@ export default function HttpClient() {
       <button
         type="button"
         className="rounded bg-blue-600 px-3 py-1.5 text-sm text-white"
-        onClick={fetWelcomeOnClick}
+        onClick={fetchWelcomeOnClick}
       >
         Fetch Welcome
       </button>
       <p>
-        Response from server: <b>{WelcomeClick}</b>
+        Response from server: <b>{WelcomeOnClick}</b>
       </p>
       <h4>Requesting on Load</h4>
       <p>
-        REsponse from server: <b>{WelcomeOnLoad}</b>
+        Response from server: <b>{WelcomeOnLoad}</b>
       </p>
     </div>
   );

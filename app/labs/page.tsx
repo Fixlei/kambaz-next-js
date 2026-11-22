@@ -48,6 +48,25 @@ export default function Labs() {
       >
         GitHub repository
       </a>
+
+      <br />
+      <a
+        href="https:github.com/Fixlei/webdev-server"
+        id="wd-github-server"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Node server respository
+      </a>
+      <br />
+      <a
+        href="https://myRender.onrender.com"
+        id="wd-render"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Render server
+      </a>
     </div>
   );
 }

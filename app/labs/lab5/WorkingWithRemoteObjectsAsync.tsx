@@ -26,7 +26,7 @@ export default function WorkingWithRemoteObjectsAsync() {
     fetchAssignment();
   }, []);
   return (
-    <div id="wd-asnychronous-objects">
+    <div id="wd-asynchronous-objects">
       <h3>Working with Objects Asynchronously</h3>
       <h4>Assignment</h4>
       <input

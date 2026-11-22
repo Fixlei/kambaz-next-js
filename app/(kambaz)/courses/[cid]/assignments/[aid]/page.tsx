@@ -1,15 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
   emptyAssignment,
   useAssignmentsStore,
   type Assignment,
 } from "@/app/(kambaz)/store/assignmentsStore";
-
+import * as client from "../../../client";
 export default function AssignmentEditor() {
   const { cid, aid } = useParams<{ cid: string; aid: string }>();
   const router = useRouter();
+  const isNew = aid ==="new";
   const assignments = useAssignmentsStore((state) => state.assignments);
   const addAssignment = useAssignmentsStore((state) => state.addAssignment);
   const updateAssignment = useAssignmentsStore(
@@ -19,14 +20,28 @@ export default function AssignmentEditor() {
   const [assignment, setAssignment] = useState<Assignment>(
     existing ?? { ...emptyAssignment, course: cid },
   );
-  const save = () => {
-    if (existing) {
-      updateAssignment(assignment);
+
+  useEffect(() => {
+    if (isNew || existing) return;
+    const load = async () => {
+      const list: Assignment[] = await client.findAssignmentsForCourse(cid);
+      const found = list.find((a) => a._id === aid);
+      if (found) setAssignment(found);
+    };
+    load();
+  }, [isNew, existing, cid, aid]);
+
+  const save = async () => {
+    if (isNew) {
+      const created = await client.createAssignmentForCourse(cid, assignment);
+      addAssignment(created);
     } else {
-      addAssignment(assignment);
+      const saved = await client.updateAssignment(assignment);
+      updateAssignment(saved);
     }
     router.push(`/courses/${cid}/assignments`);
   };
+  
   const cancel = () => router.push(`/courses/${cid}/assignments`);
 
   return (

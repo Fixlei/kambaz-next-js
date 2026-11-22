@@ -1,16 +1,35 @@
 "use client";
+import { useEffect } from "react";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { useParams, useRouter } from "next/navigation";
+import * as client from "../../client";
 import AssignmentItem from "./AssignmentItem";
 import { useAssignmentsStore } from "@/app/(kambaz)/store/assignmentsStore";
 
 export default function Assignments() {
   const { cid } = useParams<{ cid: string }>();
   const router = useRouter();
-  const allAssignments = useAssignmentsStore((state) => state.assignments);
-  const assignments = allAssignments.filter(
-    (assignment) => assignment.course === cid,
+  const assignments = useAssignmentsStore((state) => state.assignments);
+  const setAssignments = useAssignmentsStore((state) => state.setAssignments);
+  const deleteAssignment = useAssignmentsStore(
+    (state) => state.deleteAssignment,
   );
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setAssignments(await client.findAssignmentsForCourse(cid));
+      } catch {
+        setAssignments([]);
+      }
+    };
+    load();
+  }, [cid, setAssignments]);
+
+  const onDeleteAssignment = async (assignmentId: string) => {
+    await client.deleteAssignment(assignmentId);
+    deleteAssignment(assignmentId);
+  };
   return (
     <div id="wd-assignments">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
@@ -33,7 +52,7 @@ export default function Assignments() {
           <button
             id="wd-add-assignment"
             type="button"
-            onClick={()=>router.push(`/courses/${cid}/assignments/new`)}
+            onClick={() => router.push(`/courses/${cid}/assignments/new`)}
             className="inline-flex items-center gap-1 rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
           >
             <FaPlus /> Assignment
@@ -60,6 +79,7 @@ export default function Assignments() {
             aid={assignment._id}
             title={assignment.title}
             details={`Multiple Modules | Not available until ${assignment.available} | Due ${assignment.due} | ${assignment.points} pts`}
+            onDelete={() => onDeleteAssignment(assignment._id)}
           />
         ))}
       </ul>

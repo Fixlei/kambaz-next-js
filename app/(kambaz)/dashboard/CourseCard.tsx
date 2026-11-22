@@ -1,18 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useCoursesStore, type Course } from "../store/coursesStore";
+import { type Course } from "../store/coursesStore";
 import { useAccountContext } from "../account/AccountContext";
 import { useEnrollmentsStore } from "../store/enrollmentsStore";
+import * as client from "../courses/client";
 
 export default function CourseCard({
   course,
   onEdit,
+  onDelete,
 }: {
   course: Course;
   onEdit: () => void;
-  onDelete:()=> void;
+  onDelete: () => void;
 }) {
-  const deleteCourse = useCoursesStore((state) => state.deleteCourse);
   const { currentUser } = useAccountContext();
   const enrollments = useEnrollmentsStore((state) => state.enrollments);
   const enrollIntoCourse = useEnrollmentsStore(
@@ -70,7 +71,7 @@ export default function CourseCard({
             className="ms-2 inline-flex items-center justify-center rounded bg-red-400 px-3 py-1.5 text-sm font-medium"
             onClick={(event) => {
               event.preventDefault();
-              deleteCourse(course._id);
+              onDelete();
             }}
           >
             Delete
@@ -80,8 +81,9 @@ export default function CourseCard({
               <button
                 type="button"
                 className="wd-unenroll-click ms-2 inline-flex items-center justify-center rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
-                onClick={(event) => {
+                onClick={async (event) => {
                   event.preventDefault();
+                  await client.unenrollFromCourse(currentUser._id, course._id);
                   unenrollFromCourse(currentUser._id, course._id);
                 }}
               >
@@ -91,8 +93,9 @@ export default function CourseCard({
               <button
                 type="button"
                 className="wd-enroll-click ms-2 inline-flex items-center justify-center rounded bg-green-600 px-3 py-1.5 text-sm font-medium text-white"
-                onClick={(event) => {
+                onClick={async (event) => {
                   event.preventDefault();
+                  await client.enrollIntoCourse(currentUser._id, course._id);
                   enrollIntoCourse(currentUser._id, course._id);
                 }}
               >

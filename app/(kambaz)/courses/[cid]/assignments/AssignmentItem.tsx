@@ -1,22 +1,20 @@
 import Link from "next/link";
 import { FaFileAlt } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
-import { useAssignmentsStore } from "@/app/(kambaz)/store/assignmentsStore";
 
 export default function AssignmentItem({
   cid,
   aid,
   title,
   details,
+  onDelete,
 }: {
   cid: string;
   aid: string;
   title: string;
   details: string;
+  onDelete: () => void;
 }) {
-  const deleteAssignment = useAssignmentsStore(
-    (state) => state.deleteAssignment,
-  );
   return (
     <li className="wd-assignment-list-item mb-3 flex gap-3 border border-neutral-300 border-l-[3px] border-l-green-600 bg-white p-3">
       <Link
@@ -33,7 +31,7 @@ export default function AssignmentItem({
         className="ms-auto shrink-0 cursor-pointer text-red-600"
         title="Delete assignment"
         onClick={() => {
-          if (window.confirm(`delete? ${title}`)) deleteAssignment(aid);
+          if (window.confirm(`delete? ${title}`)) onDelete();
         }}
       />
     </li>

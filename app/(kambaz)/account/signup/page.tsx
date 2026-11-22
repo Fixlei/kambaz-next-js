@@ -5,22 +5,38 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as client from "../client";
 import { useAccountContext } from "../AccountContext";
+import { isAxiosError } from "axios";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { setCurrentUser } = useAccountContext();
   const router = useRouter();
+  const [error, setError] = useState("");
 
   const signup = async () => {
-    const current = await client.signup({ username, password });
-    setCurrentUser(current);
-    router.push("/account/profile");
+    try {
+      const current = await client.signup({ username, password });
+      setCurrentUser(current);
+      router.push("/account/profile");
+    } catch (e) {
+      if (isAxiosError(e)) {
+        setError(e.response?.data.message);
+      }
+    }
   };
 
   return (
     <div id="wd-signup-screen" className="max-w-sm">
       <h3 className="mb-3 text-2xl font-semibold">Sign up</h3>
+      {error && (
+        <p
+          id="wd-signup-error"
+          className="mb-2 rounded bg-red-100 px-3 py-2 text-red-800"
+        >
+          {error}
+        </p>
+      )}
       <input
         className="wd-username mb-2 w-full rounded border border-neutral-300 px-3 py-2"
         id="wd-username"

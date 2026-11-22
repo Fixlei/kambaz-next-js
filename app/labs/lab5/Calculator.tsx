@@ -27,7 +27,7 @@ export default function CalculatorNextWebApiClient() {
       return;
     }
     setError("");
-    setResult(`${data.a}${SYMBOLS[data.operation]}${data.b}=${data.result}`);
+    setResult(`${data.a} ${SYMBOLS[data.operation]} ${data.b} = ${data.result}`);
   };
   return (
     <div id="wd-lab5-next-calculator" className="p-2">
@@ -57,7 +57,7 @@ export default function CalculatorNextWebApiClient() {
       />
       <br />
       <label htmlFor="operation-select" className="mr-2">
-        Operation
+        Operation:
       </label>
       <select
         id="operation-select"
@@ -88,7 +88,7 @@ export default function CalculatorNextWebApiClient() {
         <input
           id="wd-calculator-result"
           readOnly
-          className="mt-2 rouned border border-neutral-300 px-2 py-1"
+          className="mt-2 rounded border border-neutral-300 px-2 py-1"
           value={result}
         />
       )}
