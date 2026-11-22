@@ -60,7 +60,7 @@ export default function Labs() {
       </a>
       <br />
       <a
-        href="https://myRender.onrender.com"
+        href="https://lmsys-webdev-server.onrender.com"
         id="wd-render"
         target="_blank"
         rel="noreferrer"
